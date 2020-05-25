@@ -1,0 +1,7 @@
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\obj\Debug\ejer_facturas.csprojAssemblyReference.cache
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\obj\Debug\ejer_facturas.csproj.CoreCompileInputs.cache
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\bin\Debug\ejer_facturas.exe.config
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\bin\Debug\ejer_facturas.exe
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\bin\Debug\ejer_facturas.pdb
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\obj\Debug\ejer_facturas.exe
+C:\Users\nam-1\source\repos\ejer_facturas\ejer_facturas\obj\Debug\ejer_facturas.pdb

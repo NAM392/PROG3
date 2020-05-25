@@ -1,0 +1,7 @@
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\bin\Debug\Excepciones_Colecciones.exe.config
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\bin\Debug\Excepciones_Colecciones.exe
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\bin\Debug\Excepciones_Colecciones.pdb
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\obj\Debug\Excepciones_Colecciones.csprojAssemblyReference.cache
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\obj\Debug\Excepciones_Colecciones.csproj.CoreCompileInputs.cache
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\obj\Debug\Excepciones_Colecciones.exe
+C:\Users\nam-1\source\repos\Excepciones_Colecciones\Excepciones_Colecciones\obj\Debug\Excepciones_Colecciones.pdb

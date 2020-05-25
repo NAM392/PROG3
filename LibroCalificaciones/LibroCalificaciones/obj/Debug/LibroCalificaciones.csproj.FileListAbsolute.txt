@@ -1,0 +1,7 @@
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\bin\Debug\LibroCalificaciones.dll.config
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\bin\Debug\LibroCalificaciones.dll
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\bin\Debug\LibroCalificaciones.pdb
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\obj\Debug\LibroCalificaciones.csprojAssemblyReference.cache
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\obj\Debug\LibroCalificaciones.csproj.CoreCompileInputs.cache
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\obj\Debug\LibroCalificaciones.dll
+C:\Users\nam-1\source\repos\LibroCalificaciones\LibroCalificaciones\obj\Debug\LibroCalificaciones.pdb

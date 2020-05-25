@@ -1,0 +1,7 @@
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\obj\Debug\ESTADISTICA.csprojAssemblyReference.cache
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\obj\Debug\ESTADISTICA.csproj.CoreCompileInputs.cache
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\bin\Debug\ESTADISTICA.exe.config
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\bin\Debug\ESTADISTICA.exe
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\bin\Debug\ESTADISTICA.pdb
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\obj\Debug\ESTADISTICA.exe
+C:\Users\nam-1\source\repos\ESTADISTICA\ESTADISTICA\obj\Debug\ESTADISTICA.pdb

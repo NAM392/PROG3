@@ -1,0 +1,7 @@
+C:\Users\nam-1\source\repos\FIN\FIN\bin\Debug\FIN.exe.config
+C:\Users\nam-1\source\repos\FIN\FIN\bin\Debug\FIN.exe
+C:\Users\nam-1\source\repos\FIN\FIN\bin\Debug\FIN.pdb
+C:\Users\nam-1\source\repos\FIN\FIN\obj\Debug\FIN.csprojAssemblyReference.cache
+C:\Users\nam-1\source\repos\FIN\FIN\obj\Debug\FIN.csproj.CoreCompileInputs.cache
+C:\Users\nam-1\source\repos\FIN\FIN\obj\Debug\FIN.exe
+C:\Users\nam-1\source\repos\FIN\FIN\obj\Debug\FIN.pdb
