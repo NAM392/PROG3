@@ -26,7 +26,7 @@ namespace ProyectoFinal
             return Deposito;
         }
         
-        public static void agregarProducto(Producto_comp agregar)
+        static public void agregarProducto(Producto_comp agregar)
         {
             Deposito.Add(agregar);
         }

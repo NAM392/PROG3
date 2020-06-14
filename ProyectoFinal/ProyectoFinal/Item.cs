@@ -36,15 +36,42 @@ namespace ProyectoFinal
 
             Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
 
-            Sistema_Rep.SetProductos(prod);
+            Sistema_Rep.agregarProducto(prod);
             
             MessageBox.Show("SE INGRESO EL PRODUCTO CORRECTAMENTE");
-
+            LimpiarLista();
             stac.Show();
             this.Hide();
 
         }
 
-       
+        private void Item_Load(object sender, EventArgs e)
+        {
+
+        }
+        public void LimpiarLista()
+        {
+
+            txtNom.Clear();
+            txt_CodProd.Clear();
+            txt_Prov.Clear();
+            txt_Cant.Clear();
+            txt_Precio.Clear();
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -14,13 +14,13 @@ namespace ProyectoFinal
     public partial class frmMetodo : Form
     {
         private Form frmSTC;
-        private Precio prc;
-       // private List<Producto_comp> Deposito; 
-        public frmMetodo(Form stc /* , Sistema_Rep sistemita  */ )
+        private Precio precio;
+        private Sistema_Rep Deposito; 
+        public frmMetodo(Form stc , object sistema )
         {
             frmSTC = stc ;
-            
-            prc = new Precio(this);
+            Deposito = (Sistema_Rep)sistema;
+            precio = new Precio(this , Deposito);
             InitializeComponent();
         }
 
@@ -48,7 +48,7 @@ namespace ProyectoFinal
         public void ActualizarLista()
         {
             cmb_Todos.Items.Clear();
-            cmb_Todos.Items.AddRange(frmSTC.sistema.getSistema().ToArray());
+            cmb_Todos.Items.AddRange(Deposito.getSistema().ToArray());
 
             /*
             if (Sistema_Rep.GetProductos() == null) { MessageBox.Show("cree un item"); }
@@ -64,7 +64,7 @@ namespace ProyectoFinal
 
         private void btn_LFP_Click(object sender, EventArgs e)
         {
-            prc.Show();
+            precio.Show();
             this.Hide();
         }
 

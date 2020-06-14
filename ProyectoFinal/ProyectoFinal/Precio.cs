@@ -14,9 +14,10 @@ namespace ProyectoFinal
     {
         private Form method;
         private STC primerFrm;
-        public Precio(Form met)
+        private Sistema_Rep Deposito;
+        public Precio(Form met , object depo)
         {
-            
+            Deposito = (Sistema_Rep)depo;
             method = met;
             InitializeComponent();
             

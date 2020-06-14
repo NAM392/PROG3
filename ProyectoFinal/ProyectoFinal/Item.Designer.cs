@@ -150,6 +150,7 @@
             this.Controls.Add(this.lbl_codP);
             this.Name = "Item";
             this.Text = "Item";
+            this.Load += new System.EventHandler(this.Item_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
