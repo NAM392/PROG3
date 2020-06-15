@@ -26,6 +26,8 @@ namespace ProyectoFinal
 
         }
 
+
+
         private void btn_sold_Click(object sender, EventArgs e)
         {
             Metodo.Show();

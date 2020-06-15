@@ -34,7 +34,7 @@
             this.OP_FIFO = new System.Windows.Forms.RadioButton();
             this.OP_LIFO = new System.Windows.Forms.RadioButton();
             this.OP_PPP = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpCosteo = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.lbl_prod = new System.Windows.Forms.Label();
             this.lbl_cant = new System.Windows.Forms.Label();
             this.txtCant = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.grpCosteo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_1
@@ -107,23 +107,24 @@
             this.OP_PPP.Text = "PPP";
             this.OP_PPP.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grpCosteo
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.lbl_PPP);
-            this.groupBox1.Controls.Add(this.lbl_LIFO);
-            this.groupBox1.Controls.Add(this.lbl_FIFO);
-            this.groupBox1.Controls.Add(this.OP_PPP);
-            this.groupBox1.Controls.Add(this.OP_LIFO);
-            this.groupBox1.Controls.Add(this.OP_FIFO);
-            this.groupBox1.Location = new System.Drawing.Point(12, 156);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(198, 137);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Indique Metodo de Costeo";
+            this.grpCosteo.Controls.Add(this.label2);
+            this.grpCosteo.Controls.Add(this.label3);
+            this.grpCosteo.Controls.Add(this.label1);
+            this.grpCosteo.Controls.Add(this.lbl_PPP);
+            this.grpCosteo.Controls.Add(this.lbl_LIFO);
+            this.grpCosteo.Controls.Add(this.lbl_FIFO);
+            this.grpCosteo.Controls.Add(this.OP_PPP);
+            this.grpCosteo.Controls.Add(this.OP_LIFO);
+            this.grpCosteo.Controls.Add(this.OP_FIFO);
+            this.grpCosteo.Location = new System.Drawing.Point(12, 156);
+            this.grpCosteo.Name = "grpCosteo";
+            this.grpCosteo.Size = new System.Drawing.Size(198, 137);
+            this.grpCosteo.TabIndex = 7;
+            this.grpCosteo.TabStop = false;
+            this.grpCosteo.Text = "Indique Metodo de Costeo";
+            this.grpCosteo.Enter += new System.EventHandler(this.grpCosteo_Enter);
             // 
             // label2
             // 
@@ -234,15 +235,15 @@
             this.Controls.Add(this.lbl_prod);
             this.Controls.Add(this.cmb_Todos);
             this.Controls.Add(this.btn_LFP);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpCosteo);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.txt_Margen);
             this.Controls.Add(this.lbl_1);
             this.Name = "frmMetodo";
             this.Text = "Metodo";
             this.Load += new System.EventHandler(this.frmMetodo_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpCosteo.ResumeLayout(false);
+            this.grpCosteo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,7 +257,7 @@
         private System.Windows.Forms.RadioButton OP_FIFO;
         private System.Windows.Forms.RadioButton OP_LIFO;
         private System.Windows.Forms.RadioButton OP_PPP;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpCosteo;
         private System.Windows.Forms.Button btn_LFP;
         private System.Windows.Forms.ComboBox cmb_Todos;
         private System.Windows.Forms.Label lbl_prod;

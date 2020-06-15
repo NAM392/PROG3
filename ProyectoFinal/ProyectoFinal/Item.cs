@@ -57,6 +57,7 @@ namespace ProyectoFinal
             txt_Prov.Clear();
             txt_Cant.Clear();
             txt_Precio.Clear();
+            txtNom.Focus();
 
 
         }
