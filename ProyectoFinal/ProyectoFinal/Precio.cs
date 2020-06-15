@@ -31,14 +31,27 @@ namespace ProyectoFinal
 
         private void Precio_Load(object sender, EventArgs e)
         {
-            lbl_Precio.Text =   Price.ToString();
+
+            lbl_Precio.Text =   Price.ToString();  //muestra el precio final el cual se tiene que cobrar por el producto
         }
 
         private void btn_CanVta_Click(object sender, EventArgs e)
         {
+            //BOTON CANCELAR
             
             this.Hide();
-            primerFrm.Show();
+            method.Show();
         }
+
+        private void btn_Vendido_Click(object sender, EventArgs e)
+        {
+            /*BOTON VENDER*/
+            Deposito.ProductoVendido(Elegido);// esta funcion sustrae de la lista el producto vendido
+            method.Close(); //cierro el form metodo
+            primerFrm.Show();
+            this.Hide();
+
+        }
+
     }
 }

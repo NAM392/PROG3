@@ -70,6 +70,7 @@
             this.btn_Vendido.TabIndex = 3;
             this.btn_Vendido.Text = "Concretar Venta";
             this.btn_Vendido.UseVisualStyleBackColor = true;
+            this.btn_Vendido.Click += new System.EventHandler(this.btn_Vendido_Click);
             // 
             // btn_CanVta
             // 

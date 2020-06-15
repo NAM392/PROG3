@@ -20,9 +20,9 @@ namespace ProyectoFinal
         {
             InitializeComponent();
             sistema = new Sistema_Rep();
-            Metodo = new frmMetodo( this ,  sistema );
+            
             items = new Item(this);
-            // IT = new Item(); si instancio aqui cae en un bucle infinito
+           
 
         }
 
@@ -30,6 +30,8 @@ namespace ProyectoFinal
 
         private void btn_sold_Click(object sender, EventArgs e)
         {
+            /*BOTON VENDER PRODUCTO*/
+            Metodo = new frmMetodo(this, sistema); //creo un nuevo metodo aqui para referescar la lista
             Metodo.Show();
             this.Hide();
 
@@ -38,7 +40,7 @@ namespace ProyectoFinal
 
         private void btn_ADitem_Click(object sender, EventArgs e)
         {
-            
+            /*BOTON CREAR ITEM */
             items.Show();
             this.Hide();
             
