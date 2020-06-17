@@ -27,9 +27,24 @@ namespace ProyectoFinal
             return Deposito;
         }
         //QUITA UN PRODUCTO EN EL DEPOSITO
-        public void ProductoVendido (Producto_comp vendido)
+        public void ProductoVendido (Producto_comp vendido , int cantidad)
         {
-            Deposito.Remove(vendido);
+            //si no hay mas producto se elimina del deposito
+            if((vendido.cant - cantidad) <= 0)
+            { Deposito.Remove(vendido); }
+            else
+            {
+                string name = vendido.Nombre;
+                int article = vendido.cod_a;
+                int provider = vendido.cod_p;
+                int quant = cantidad;
+                double cost = vendido.prec;
+                Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
+                Sistema_Rep.agregarProducto(prod);
+                Deposito.Remove(vendido);
+            }
+
+            
         }
         //AGREGA UN PRODUCTO EN EL DEPOSITO
         static public void agregarProducto(Producto_comp agregar)

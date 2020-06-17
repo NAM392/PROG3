@@ -16,5 +16,10 @@ namespace ProyectoFinal
         {
             InitializeComponent();
         }
+
+        private void Stock_Final_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

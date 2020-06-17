@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
+    
     public partial class Ver_Stock : Form
     {
-        public Ver_Stock()
+        private Sistema_Rep Deposito;
+        public Ver_Stock(object sistema)
         {
             InitializeComponent();
+            Deposito = (Sistema_Rep)sistema;
+        }
+
+        private void btn_STNom_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

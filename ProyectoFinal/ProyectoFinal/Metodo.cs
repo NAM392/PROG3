@@ -63,8 +63,11 @@ namespace ProyectoFinal
             //BOTON ACEPTAR FORM METODO
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
             double precio_final = 0;
-
+            int cantidad = int.Parse(txtCant.Text);
             /*ERRORES AL INGRESO*/
+
+
+            //arreglar error al no ingresar absolutamente nada y apretar aceptar
 
             //sin stock
             if (elegido.cant < int.Parse(txtCant.Text))
@@ -99,7 +102,7 @@ namespace ProyectoFinal
             precio_final = Math.Round(PrecioFinal(elegido));
              
 
-            precio = new Precio(frmSTC, this, Deposito, elegido , precio_final );
+            precio = new Precio(frmSTC, this, Deposito, elegido , precio_final , cantidad);
 
             precio.Show();
             this.Hide();
@@ -107,7 +110,7 @@ namespace ProyectoFinal
             //funcion de seleccion metodo de costeo
              double PrecioFinal(object seleccionado)
             {
-                int cantidad = int.Parse(txtCant.Text);
+                
                 double MU = 0;
 
                 //elegi FIFO

@@ -15,14 +15,14 @@ namespace ProyectoFinal
         private Sistema_Rep sistema;
         private frmMetodo Metodo;
         private Item items;
+        private Ver_Stock stock;
         
         public STC()
         {
             InitializeComponent();
             sistema = new Sistema_Rep();
-            
             items = new Item(this);
-           
+            stock = new Ver_Stock(sistema);
 
         }
 
@@ -49,6 +49,13 @@ namespace ProyectoFinal
 
         private void STC_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_shStock_Click(object sender, EventArgs e)
+        {
+            stock.Show();
+            this.Hide();
 
         }
     }

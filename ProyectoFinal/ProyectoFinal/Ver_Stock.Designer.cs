@@ -41,6 +41,7 @@
             this.btn_STNom.TabIndex = 0;
             this.btn_STNom.Text = "Producto";
             this.btn_STNom.UseVisualStyleBackColor = true;
+            this.btn_STNom.Click += new System.EventHandler(this.btn_STNom_Click);
             // 
             // btn_STProv
             // 
@@ -64,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 301);
+            this.ClientSize = new System.Drawing.Size(319, 301);
             this.Controls.Add(this.btn_STRange);
             this.Controls.Add(this.btn_STProv);
             this.Controls.Add(this.btn_STNom);

@@ -17,7 +17,8 @@ namespace ProyectoFinal
         private Sistema_Rep Deposito;
         private Producto_comp Elegido;
         private double Price ;
-        public Precio(Form prim , Form met , object depo , object elegido , double precio)
+        private int Cantidad;
+        public Precio(Form prim , Form met , object depo , object elegido , double precio , int cantidad)
         {
 
             Deposito = (Sistema_Rep)depo;
@@ -25,6 +26,7 @@ namespace ProyectoFinal
             primerFrm = prim;
             Elegido = (Producto_comp)elegido;
             Price = precio;
+            Cantidad = cantidad;
             InitializeComponent();
             
         }
@@ -46,7 +48,7 @@ namespace ProyectoFinal
         private void btn_Vendido_Click(object sender, EventArgs e)
         {
             /*BOTON VENDER*/
-            Deposito.ProductoVendido(Elegido);// esta funcion sustrae de la lista el producto vendido
+            Deposito.ProductoVendido(Elegido ,Cantidad );// esta funcion sustrae de la lista el producto vendido
             method.Close(); //cierro el form metodo
             primerFrm.Show();
             this.Hide();

@@ -288,5 +288,10 @@ namespace DemoProductos
          dgvDatos.DataSource = Productos;
 
       }
-   }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }

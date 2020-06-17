@@ -312,6 +312,7 @@
             this.Controls.Add(this.lbl_ST_FN);
             this.Name = "Stock_Final";
             this.Text = "Stock_Final";
+            this.Load += new System.EventHandler(this.Stock_Final_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

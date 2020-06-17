@@ -52,6 +52,7 @@
             this.btn_shStock.TabIndex = 1;
             this.btn_shStock.Text = "Ver Stock";
             this.btn_shStock.UseVisualStyleBackColor = true;
+            this.btn_shStock.Click += new System.EventHandler(this.btn_shStock_Click);
             // 
             // btn_sold
             // 
