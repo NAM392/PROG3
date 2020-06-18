@@ -20,7 +20,10 @@ namespace ProyectoFinal
         public STC()
         {
             InitializeComponent();
-            sistema = new Sistema_Rep();
+
+            //Program.Sistema_Rep.getSistema();
+
+            sistema = Program.getSistema(); 
             items = new Item(this);
             stock = new Ver_Stock(sistema);
 

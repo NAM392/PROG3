@@ -17,15 +17,18 @@ namespace ProyectoFinal
 
 
         //PONE EN MEMORIA A DEPOSITO
-        public Sistema_Rep ()
+         public  Sistema_Rep ()
         {
             Deposito = new List<Producto_comp>();
         }
         //GETTER DEL DEPOSITO
-        public  List<Producto_comp>  getSistema()
+        
+        public  List<Producto_comp>  getDeposito()
         {
             return Deposito;
         }
+        
+
         //QUITA UN PRODUCTO EN EL DEPOSITO
         public void ProductoVendido (Producto_comp vendido , int cantidad)
         {
@@ -40,19 +43,19 @@ namespace ProyectoFinal
                 int quant = cantidad;
                 double cost = vendido.prec;
                 Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
-                Sistema_Rep.agregarProducto(prod);
+                Program.getSistema().agregarProducto(prod);
                 Deposito.Remove(vendido);
             }
 
             
         }
         //AGREGA UN PRODUCTO EN EL DEPOSITO
-        static public void agregarProducto(Producto_comp agregar)
+         public void agregarProducto(Producto_comp agregar)
         {
             Deposito.Add(agregar);
         }
         //FUNCION CALCULAR FIFO
-        static public string FIFO(Producto_comp elegido)
+        public string FIFO(Producto_comp elegido)
         {
              PG = Deposito;
 
@@ -66,7 +69,7 @@ namespace ProyectoFinal
             return "0";
         }
         //FUNCION CALCULAR LIFO
-        static public string LIFO(Producto_comp elegido)
+        public string LIFO(Producto_comp elegido)
         {
             PG = Deposito;
 
@@ -83,7 +86,7 @@ namespace ProyectoFinal
             return "0";
         }
         //FUNCION CALCULAR PPP
-        static public string PPP(Producto_comp elegido)
+         public string PPP(Producto_comp elegido)
         {
 
             PG = Deposito; 

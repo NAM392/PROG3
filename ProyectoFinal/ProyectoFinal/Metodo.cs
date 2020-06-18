@@ -38,18 +38,18 @@ namespace ProyectoFinal
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
 
             //FIFO
-            lbl_FIFO.Text = Sistema_Rep.FIFO(elegido);
+            lbl_FIFO.Text = Program.getSistema().FIFO(elegido);
 
             //LIFO
-            lbl_LIFO.Text = Sistema_Rep.LIFO(elegido);
+            lbl_LIFO.Text = Program.getSistema().LIFO(elegido);
 
             //PPP  
-            lbl_PPP.Text = Sistema_Rep.PPP(elegido);
+            lbl_PPP.Text = Program.getSistema().PPP(elegido);
         }
         public void ActualizarLista()
         {
             cmb_Todos.Items.Clear();
-            cmb_Todos.Items.AddRange(Deposito.getSistema().ToArray());
+            cmb_Todos.Items.AddRange(Program.getSistema().getDeposito().ToArray());
             txtCant.Text = "0";
             txt_Margen.Text = "0";
             OP_FIFO.Checked = false;

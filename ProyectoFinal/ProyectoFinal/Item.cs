@@ -27,7 +27,7 @@ namespace ProyectoFinal
 
         private void btn_Item_Click(object sender, EventArgs e)
         {
-            
+
             string name = txtNom.Text;
             int article = Int32.Parse(txt_CodProd.Text);
             int provider = Int32.Parse(txt_Prov.Text);
@@ -36,7 +36,7 @@ namespace ProyectoFinal
 
             Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
 
-            Sistema_Rep.agregarProducto(prod);
+            Program.getSistema().agregarProducto(prod);
             
             MessageBox.Show("SE INGRESO EL PRODUCTO CORRECTAMENTE");
             LimpiarLista();
