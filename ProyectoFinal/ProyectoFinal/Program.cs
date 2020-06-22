@@ -22,17 +22,33 @@ namespace ProyectoFinal
         [STAThread]
         static void Main()
         {
+            //proveedores iniciales
+            s = new Sistema_Rep();
+            Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
+            s.agregarProveedor(pr);
+            Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
+            s.agregarProveedor(pl);
+            //fecha
+            DateTime dt = new DateTime( 2019 , 6 , 20) ;
+            //productos iniciales
+            Producto_comp prod = new Producto_comp("Tornillos", 123, pr, 323, 1.4, dt);
+            Producto_comp prod2 = new Producto_comp("Arandelas", 256, pl, 157, 2.3, dt);
+            Producto_comp prod3 = new Producto_comp("Media Omega", 620, pl, 621, 0.75, dt);
+            s.agregarProducto(prod);
+            s.agregarProducto(prod2);
+            s.agregarProducto(prod3);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new STC());
 
-            s = new Sistema_Rep();
+
 
             // -----------------------------------
             // descomentar siguiente bloque para la primera ejecución (creación del archivo por 1ra vez)
 
-            Producto_comp prod = new Producto_comp("nn", 1, 1, 1, 3);
-            s.agregarProducto(prod);
+
+
 
             /*
             
@@ -46,7 +62,7 @@ namespace ProyectoFinal
             f.agregarItem("Jamon", 450);
             f.agregarItem("Queso", 300);
             s.agregarFactura(f);
-            */
+           
             Stream flujo2 = File.Create("datos.bin");
             BinaryFormatter serializer = new BinaryFormatter();
             serializer.Serialize(flujo2, s);
@@ -57,19 +73,20 @@ namespace ProyectoFinal
 
 
             // -----------------------------------
+             */
 
 
-
-            /*
+            
 
            // este bloque es la deserialización, donde la clase Sistema que quedó guardada
            // en el archivo se vuelve a poner en memoria.
 
            try
            {
+                
                Stream flujo = File.OpenRead("datos.bin");
                BinaryFormatter deserializer = new BinaryFormatter();
-               s = (Sistema_rep)deserializer.Deserialize(flujo);
+               s = (Sistema_Rep)deserializer.Deserialize(flujo);
                flujo.Close();
            }
            catch (Exception e)
@@ -82,7 +99,7 @@ namespace ProyectoFinal
 
            Application.ApplicationExit += new System.EventHandler(SerializarAlSalir); //ApplicationExit = evento que se dispara al cerrar la app
 
-           */
+            /**/
         }
 
         //este método va a ser llamado en el evento ApplicationExit
@@ -169,9 +186,9 @@ namespace EjemploCompletoSerializacion
             try
             {
                 Stream flujo = File.OpenRead("datos.bin");
-BinaryFormatter deserializer = new BinaryFormatter();
-s = (Sistema) deserializer.Deserialize(flujo);
-flujo.Close();
+                BinaryFormatter deserializer = new BinaryFormatter();
+                s = (Sistema) deserializer.Deserialize(flujo);
+                flujo.Close();
             }
             catch (Exception e)
             {

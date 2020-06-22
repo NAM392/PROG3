@@ -19,7 +19,7 @@ namespace ProyectoFinal
         public frmMetodo(Form stc , object sistema )
         {
             frmSTC = stc ;  //REFERENCIA AL FORM INICIAL
-            Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en el primer form
+            Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en Program
             
             InitializeComponent();
         }
@@ -64,13 +64,12 @@ namespace ProyectoFinal
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
             double precio_final = 0;
             int cantidad = int.Parse(txtCant.Text);
-            /*ERRORES AL INGRESO*/
-
-
-            //arreglar error al no ingresar absolutamente nada y apretar aceptar
-
+            /******ERRORES AL INGRESO******/
+            
+            //no selecciono nada
+            if(elegido == null) { MessageBox.Show("Seleccione Producto");return; }
             //sin stock
-            if (elegido.cant < int.Parse(txtCant.Text))
+            if (elegido.cantidad < int.Parse(txtCant.Text))
             {
                 MessageBox.Show("NO HAY STOCK");
                 return;
@@ -158,6 +157,12 @@ namespace ProyectoFinal
         private void grpCosteo_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            frmSTC.Show();
+            this.Close();
         }
     }
 }

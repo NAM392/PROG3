@@ -46,6 +46,7 @@
             this.lbl_prod = new System.Windows.Forms.Label();
             this.lbl_cant = new System.Windows.Forms.Label();
             this.txtCant = new System.Windows.Forms.TextBox();
+            this.btn_Cancel = new System.Windows.Forms.Button();
             this.grpCosteo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,7 +184,7 @@
             // 
             // btn_LFP
             // 
-            this.btn_LFP.Location = new System.Drawing.Point(263, 279);
+            this.btn_LFP.Location = new System.Drawing.Point(263, 229);
             this.btn_LFP.Name = "btn_LFP";
             this.btn_LFP.Size = new System.Drawing.Size(126, 38);
             this.btn_LFP.TabIndex = 8;
@@ -225,11 +226,22 @@
             this.txtCant.Size = new System.Drawing.Size(74, 22);
             this.txtCant.TabIndex = 12;
             // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Location = new System.Drawing.Point(263, 288);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(126, 38);
+            this.btn_Cancel.TabIndex = 13;
+            this.btn_Cancel.Text = "Cancelar";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
             // frmMetodo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 338);
+            this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.txtCant);
             this.Controls.Add(this.lbl_cant);
             this.Controls.Add(this.lbl_prod);
@@ -269,5 +281,6 @@
         private System.Windows.Forms.Label lbl_LIFO;
         private System.Windows.Forms.Label lbl_FIFO;
         private System.Windows.Forms.TextBox txtCant;
+        private System.Windows.Forms.Button btn_Cancel;
     }
 }

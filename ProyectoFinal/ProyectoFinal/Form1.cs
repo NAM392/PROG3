@@ -16,6 +16,7 @@ namespace ProyectoFinal
         private frmMetodo Metodo;
         private Item items;
         private Ver_Stock stock;
+        private AD_Stock agregar;
         
         public STC()
         {
@@ -24,8 +25,9 @@ namespace ProyectoFinal
             //Program.Sistema_Rep.getSistema();
 
             sistema = Program.getSistema(); 
-            items = new Item(this);
-            stock = new Ver_Stock(sistema);
+            
+            
+            agregar = new AD_Stock(this);
 
         }
 
@@ -44,6 +46,7 @@ namespace ProyectoFinal
         private void btn_ADitem_Click(object sender, EventArgs e)
         {
             /*BOTON CREAR ITEM */
+            items = new Item(this);
             items.Show();
             this.Hide();
             
@@ -57,7 +60,16 @@ namespace ProyectoFinal
 
         private void btn_shStock_Click(object sender, EventArgs e)
         {
+            /*BOTON VER DEPOSITO*/
+            stock = new Ver_Stock(sistema, this);
             stock.Show();
+            this.Hide();
+
+        }
+
+        private void btn_ADstock_Click(object sender, EventArgs e)
+        {
+            agregar.Show();
             this.Hide();
 
         }

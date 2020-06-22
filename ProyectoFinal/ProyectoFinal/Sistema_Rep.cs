@@ -13,36 +13,51 @@ namespace ProyectoFinal
         /*CLASE SISTEMA QUE CONTIENE EL DEPOSITO Y LOS METODOS PARA LOS DIFERENTES CALCULOS*/
 
         private static List<Producto_comp> Deposito;
-        private static List<Producto_comp> PG;
+        private static List<Costeados> CalculoCosto;
+        private static List<Costeados> ListaInvertida;
+        private static List<Proveedor> Proveedores;
 
-
-        //PONE EN MEMORIA A DEPOSITO
+        //PONE EN MEMORIA A DEPOSITO , PROVEEDOR , COSTEADOS
          public  Sistema_Rep ()
         {
             Deposito = new List<Producto_comp>();
+            Proveedores = new List<Proveedor>();
+            CalculoCosto = new List<Costeados>();
         }
         //GETTER DEL DEPOSITO
         
         public  List<Producto_comp>  getDeposito()
         {
             return Deposito;
-        }
-        
 
+        }
+        //GETTER DE COSTEADOS
+        public List<Costeados> getCosteados()
+        {
+            return CalculoCosto;
+
+        }
+
+        //GETTER DE PROVEEDORES
+        public List<Proveedor> getProveedor()
+        {
+            return Proveedores;
+        }
         //QUITA UN PRODUCTO EN EL DEPOSITO
         public void ProductoVendido (Producto_comp vendido , int cantidad)
         {
             //si no hay mas producto se elimina del deposito
-            if((vendido.cant - cantidad) <= 0)
+            if((vendido.cantidad - cantidad) <= 0)
             { Deposito.Remove(vendido); }
             else
             {
                 string name = vendido.Nombre;
-                int article = vendido.cod_a;
-                int provider = vendido.cod_p;
+                int article = vendido.cod_articulo;
+                Proveedor provider = vendido.Proveedor;
                 int quant = cantidad;
                 double cost = vendido.prec;
-                Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
+                DateTime fecha = vendido.date;
+                Producto_comp prod = new Producto_comp(name, article, provider, quant, cost , fecha);
                 Program.getSistema().agregarProducto(prod);
                 Deposito.Remove(vendido);
             }
@@ -50,20 +65,33 @@ namespace ProyectoFinal
             
         }
         //AGREGA UN PRODUCTO EN EL DEPOSITO
-         public void agregarProducto(Producto_comp agregar)
+        public void agregarProducto(Producto_comp agregar)
         {
+            Costeados n = new Costeados(agregar.Nombre, agregar.prec, agregar.cantidad, agregar.date , agregar.Proveedor);
+            CalculoCosto.Add(n);
             Deposito.Add(agregar);
+          
+        }
+        //AGREGA UN PROVEEDOR
+        public void agregarProveedor(Proveedor NewProv)
+        {
+            Proveedores.Add(NewProv);
+        }
+        //QUITAR UN PRODUCTO DEL DEPOSITO
+        public void QuitarProducto(Producto_comp quit)
+        {
+            Deposito.Remove(quit);
         }
         //FUNCION CALCULAR FIFO
         public string FIFO(Producto_comp elegido)
         {
-             PG = Deposito;
-
-            foreach (var p in PG)
+            //Ordena la Lista CalculoCosto por Fecha 
+            CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
+            foreach (var c in CalculoCosto)
             {
-                if (p.Nombre == elegido.Nombre)
+                if (c.Nombre == elegido.Nombre)
                 {
-                    return (Math.Round(p.prec)).ToString();
+                    return (Math.Round(c.precio)).ToString();
                 }
             }
             return "0";
@@ -71,15 +99,17 @@ namespace ProyectoFinal
         //FUNCION CALCULAR LIFO
         public string LIFO(Producto_comp elegido)
         {
-            PG = Deposito;
+            //Ordena la Lista CalculoCosto por Fecha 
+            CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
+            ListaInvertida = CalculoCosto;
+            //Invierto CalculoCosto ya ordenada por Fecha 
+            ListaInvertida.Reverse();
 
-            PG.Reverse();
-
-            foreach (var p in PG)
+            foreach (var L in ListaInvertida)
             {
-                if (p.Nombre == elegido.Nombre)
+                if (L.Nombre == elegido.Nombre)
                 {
-                    return (Math.Round(p.prec)).ToString();
+                    return (Math.Round(L.precio)).ToString();
                 }
             }
 
@@ -88,17 +118,17 @@ namespace ProyectoFinal
         //FUNCION CALCULAR PPP
          public string PPP(Producto_comp elegido)
         {
-
-            PG = Deposito; 
+            //Ordena la Lista CalculoCosto por Fecha 
+            CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
             int cont = 0;
             double acum = 0;
 
 
-            foreach (var p in PG)
+            foreach (var C in CalculoCosto)
             {
-                if (p.Nombre == elegido.Nombre)
+                if (C.Nombre == elegido.Nombre)
                 {
-                    acum += p.prec;
+                    acum += C.precio;
                     cont++;
                 }
             }

@@ -6,45 +6,33 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal
 {
-    [Serializable]
-    class Producto_comp
+    class Costeados
     {
-
         private string name;
-        private int CodArt;
-        private Proveedor proveedor;
         private int quantity;
         private double price_un;
         private DateTime Fecha;
-
-        public Producto_comp (string nombre , int codigo_art , Proveedor prov , int cantidad , double precio_unidad , DateTime fecha)
+        private Proveedor proveed;
+        public Costeados(string nombre , double precio_unidad , int cantidad , DateTime fecha , Proveedor proveedor)
         {
             name = nombre;
-            CodArt = codigo_art;
-            proveedor = prov;
             quantity = cantidad;
             price_un = precio_unidad;
             Fecha = fecha;
+            proveed = proveedor;
         }
 
         public string Nombre
         {
-             get { return name; }
+            get { return name; }
         }
-        public int cod_articulo
-        {
-            get { return CodArt; }
-        }
-        public Proveedor Proveedor
-        {
-            get { return proveedor; }
-        }
-        public int cantidad 
+
+        public int cantidad
         {
             get { return quantity; }
         }
 
-        public double prec
+        public double precio
         {
             get { return price_un; }
         }
@@ -52,23 +40,14 @@ namespace ProyectoFinal
         {
             get { return Fecha; }
         }
+        public Proveedor Proveedor
+        {
+            get { return proveed; }
+        }
         public override string ToString()
         {
-            return Nombre;
+            return "     Nombre : " + Nombre + "    Cantidad :  " +  cantidad + "     Precio :  $" +  precio + "    Fecha :  " + date.ToShortDateString() ;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

@@ -27,14 +27,21 @@ namespace ProyectoFinal
 
         private void btn_Item_Click(object sender, EventArgs e)
         {
-
+            
             string name = txtNom.Text;
             int article = Int32.Parse(txt_CodProd.Text);
-            int provider = Int32.Parse(txt_Prov.Text);
+            Proveedor provider = (Proveedor)cmb_Proveedor.SelectedItem;
             int quant = Int32.Parse(txt_Cant.Text);
             double cost = double.Parse(txt_Precio.Text);
+            DateTime fecha = Fecha_Date.Value;
 
-            Producto_comp prod = new Producto_comp(name, article, provider, quant, cost);
+            //FALTAN CAMPOS
+            if (article == 0 || name == null && quant == 0 || cost == 0 || (Proveedor)cmb_Proveedor.SelectedItem == null)
+                { MessageBox.Show("Complete todos los campos "); return; };
+
+            Producto_comp prod = new Producto_comp(name, article, provider, quant, cost , fecha);
+
+
 
             Program.getSistema().agregarProducto(prod);
             
@@ -42,27 +49,34 @@ namespace ProyectoFinal
             LimpiarLista();
             stac.Show();
             this.Hide();
-
+            
+            
         }
 
         private void Item_Load(object sender, EventArgs e)
         {
+            
+            LimpiarLista();
 
         }
         public void LimpiarLista()
         {
-
-            txtNom.Clear();
-            txt_CodProd.Clear();
-            txt_Prov.Clear();
-            txt_Cant.Clear();
-            txt_Precio.Clear();
+            txtNom.Text = " ";
+            txt_CodProd.Text = "0";
+            cmb_Proveedor.Items.Clear();
+            cmb_Proveedor.Items.AddRange(Program.getSistema().getProveedor().ToArray());
+            txt_Cant.Text = "0";
+            txt_Precio.Text = "0";
             txtNom.Focus();
-
-
+                      
         }
 
-
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            stac.Show();
+            this.Hide();
+        }
+    }
 
 
 
@@ -75,4 +89,4 @@ namespace ProyectoFinal
 
 
     }
-}
+

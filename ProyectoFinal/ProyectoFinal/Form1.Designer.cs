@@ -31,11 +31,12 @@
             this.btn_ADitem = new System.Windows.Forms.Button();
             this.btn_shStock = new System.Windows.Forms.Button();
             this.btn_sold = new System.Windows.Forms.Button();
+            this.btn_ADstock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_ADitem
             // 
-            this.btn_ADitem.Location = new System.Drawing.Point(95, 38);
+            this.btn_ADitem.Location = new System.Drawing.Point(95, 25);
             this.btn_ADitem.Name = "btn_ADitem";
             this.btn_ADitem.Size = new System.Drawing.Size(192, 47);
             this.btn_ADitem.TabIndex = 0;
@@ -46,17 +47,17 @@
             // 
             // btn_shStock
             // 
-            this.btn_shStock.Location = new System.Drawing.Point(95, 110);
+            this.btn_shStock.Location = new System.Drawing.Point(95, 131);
             this.btn_shStock.Name = "btn_shStock";
             this.btn_shStock.Size = new System.Drawing.Size(192, 47);
             this.btn_shStock.TabIndex = 1;
-            this.btn_shStock.Text = "Ver Stock";
+            this.btn_shStock.Text = "Ver Deposito";
             this.btn_shStock.UseVisualStyleBackColor = true;
             this.btn_shStock.Click += new System.EventHandler(this.btn_shStock_Click);
             // 
             // btn_sold
             // 
-            this.btn_sold.Location = new System.Drawing.Point(95, 175);
+            this.btn_sold.Location = new System.Drawing.Point(95, 184);
             this.btn_sold.Name = "btn_sold";
             this.btn_sold.Size = new System.Drawing.Size(192, 47);
             this.btn_sold.TabIndex = 2;
@@ -64,11 +65,23 @@
             this.btn_sold.UseVisualStyleBackColor = true;
             this.btn_sold.Click += new System.EventHandler(this.btn_sold_Click);
             // 
+            // btn_ADstock
+            // 
+            this.btn_ADstock.Location = new System.Drawing.Point(95, 78);
+            this.btn_ADstock.Name = "btn_ADstock";
+            this.btn_ADstock.Size = new System.Drawing.Size(192, 47);
+            this.btn_ADstock.TabIndex = 3;
+            this.btn_ADstock.Text = "Agregar Stock";
+            this.btn_ADstock.UseCompatibleTextRendering = true;
+            this.btn_ADstock.UseVisualStyleBackColor = true;
+            this.btn_ADstock.Click += new System.EventHandler(this.btn_ADstock_Click);
+            // 
             // STC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 265);
+            this.Controls.Add(this.btn_ADstock);
             this.Controls.Add(this.btn_sold);
             this.Controls.Add(this.btn_shStock);
             this.Controls.Add(this.btn_ADitem);
@@ -84,6 +97,7 @@
         private System.Windows.Forms.Button btn_ADitem;
         private System.Windows.Forms.Button btn_shStock;
         private System.Windows.Forms.Button btn_sold;
+        private System.Windows.Forms.Button btn_ADstock;
     }
 }
 
