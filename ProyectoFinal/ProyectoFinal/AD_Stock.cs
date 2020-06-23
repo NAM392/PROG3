@@ -38,6 +38,14 @@ namespace ProyectoFinal
         {
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
 
+            /*ERRORES*/
+
+            //no selecciono nada
+            if (elegido == null) { MessageBox.Show("Seleccione Producto"); return; }
+            //FALTAN CAMPOS
+            if (elegido.Nombre == null || txt_Cant.Text == "0" || double.Parse(txt_Precio.Text) == 0)
+            { MessageBox.Show("Complete todos los campos "); return; };
+
             string name = elegido.Nombre;
             int article = elegido.cod_articulo;
             Proveedor provider = elegido.Proveedor;
@@ -45,9 +53,6 @@ namespace ProyectoFinal
             double cost = double.Parse(txt_Precio.Text);
             DateTime fecha = fecha_Compra.Value;
 
-            //FALTAN CAMPOS
-            if (name == null || quant == 0 || cost == 0 || (Producto_comp)cmb_Depo.SelectedItem == null)
-            { MessageBox.Show("Complete todos los campos "); return; };
 
             //crea nuevo producto
             Producto_comp prod = new Producto_comp(name, article, provider, quant, cost , fecha);
