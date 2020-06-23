@@ -10,8 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
-
+   
     public partial class Item : Form
     {
         private Form stac;

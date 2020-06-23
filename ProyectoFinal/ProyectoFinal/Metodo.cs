@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
+    
     public partial class frmMetodo : Form
     {
         private Form frmSTC;

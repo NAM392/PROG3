@@ -57,19 +57,5 @@ namespace ProyectoFinal
             return Nombre ;
             
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

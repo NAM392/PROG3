@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
+   
     public partial class AD_Stock : Form
     {
         private Form frmSTC;

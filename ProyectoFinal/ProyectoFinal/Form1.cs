@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
+    
     public partial class STC : Form
     {
         private Form login;

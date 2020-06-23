@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
+  
     public partial class Precio : Form
     {
         private Form method;
@@ -51,6 +51,7 @@ namespace ProyectoFinal
             /*BOTON VENDER*/
             Program.getSistema().ProductoVendido(Elegido ,Cantidad );// esta funcion sustrae de la lista el producto vendido
             method.Close(); //cierro el form metodo
+            MessageBox.Show("EL PRODUCTO HA SIDO VENDIDO");
             primerFrm.Show();
             this.Hide();
 

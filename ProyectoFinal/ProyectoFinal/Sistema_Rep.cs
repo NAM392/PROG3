@@ -12,11 +12,11 @@ namespace ProyectoFinal
     {
         /*CLASE SISTEMA QUE CONTIENE EL DEPOSITO Y LOS METODOS PARA LOS DIFERENTES CALCULOS*/
 
-        private static List<Producto_comp> Deposito;
-        private static List<Costeados> CalculoCosto;
-        private static List<Costeados> ListaInvertida;
-        private static List<Proveedor> Proveedores;
-        private static Dictionary<string, string> Ingresos;
+        private  List<Producto_comp> Deposito;
+        private  List<Costeados> CalculoCosto;
+        private  List<Costeados> ListaInvertida;
+        private  List<Proveedor> Proveedores;
+        private  Dictionary<string, string> Ingresos;
 
         //PONE EN MEMORIA A DEPOSITO , PROVEEDOR , COSTEADOS
         public Sistema_Rep()
@@ -175,7 +175,7 @@ namespace ProyectoFinal
             {
                 if (c.Nombre == elegido.Nombre)
                 {
-                    return (Math.Round(c.precio)).ToString();
+                    return (Math.Round(c.precio , 2)).ToString();
                 }
             }
             return "0";
@@ -193,7 +193,7 @@ namespace ProyectoFinal
             {
                 if (L.Nombre == elegido.Nombre)
                 {
-                    return (Math.Round(L.precio)).ToString();
+                    return (Math.Round(L.precio , 2)).ToString();
                 }
             }
 

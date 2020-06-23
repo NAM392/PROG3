@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    [Serializable]
+    
     public partial class Ver_Stock : Form
     {
         private Sistema_Rep Deposito;
