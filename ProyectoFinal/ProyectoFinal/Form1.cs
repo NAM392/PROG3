@@ -10,25 +10,22 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
+    [Serializable]
     public partial class STC : Form
     {
+        private Form login;
         private Sistema_Rep sistema;
         private frmMetodo Metodo;
         private Item items;
         private Ver_Stock stock;
         private AD_Stock agregar;
         
-        public STC()
+        public STC(Form log)
         {
             InitializeComponent();
-
-            //Program.Sistema_Rep.getSistema();
-
             sistema = Program.getSistema(); 
             
-            
-            agregar = new AD_Stock(this);
-
+            login = log;
         }
 
 
@@ -36,7 +33,7 @@ namespace ProyectoFinal
         private void btn_sold_Click(object sender, EventArgs e)
         {
             /*BOTON VENDER PRODUCTO*/
-            Metodo = new frmMetodo(this, sistema); //creo un nuevo metodo aqui para referescar la lista
+            Metodo = new frmMetodo(this, sistema); //creo un nuevo form metodo aqui para referescar la lista
             Metodo.Show();
             this.Hide();
 
@@ -55,13 +52,13 @@ namespace ProyectoFinal
 
         private void STC_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_shStock_Click(object sender, EventArgs e)
         {
             /*BOTON VER DEPOSITO*/
-            stock = new Ver_Stock(sistema, this);
+            stock = new Ver_Stock(sistema, this);  //creo un nuevo form stock para refrescar la lista
             stock.Show();
             this.Hide();
 
@@ -69,9 +66,16 @@ namespace ProyectoFinal
 
         private void btn_ADstock_Click(object sender, EventArgs e)
         {
+            agregar = new AD_Stock(this);
             agregar.Show();
             this.Hide();
 
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Close();
         }
     }
 }

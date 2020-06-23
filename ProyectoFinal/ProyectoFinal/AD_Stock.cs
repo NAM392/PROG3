@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
+    [Serializable]
     public partial class AD_Stock : Form
     {
         private Form frmSTC;
@@ -26,16 +27,11 @@ namespace ProyectoFinal
             txt_Precio.Text = elegido.prec.ToString();
             fecha_Compra.MinDate = elegido.date;
             fecha_Compra.MaxDate = DateTime.MaxValue;
-
-
-
         }
 
         private void AD_Stock_Load(object sender, EventArgs e)
         {
             cmb_Depo.Items.AddRange(Program.getSistema().getDeposito().ToArray());
-
-
         }
 
         private void btn_Accept_Click(object sender, EventArgs e)
@@ -45,12 +41,12 @@ namespace ProyectoFinal
             string name = elegido.Nombre;
             int article = elegido.cod_articulo;
             Proveedor provider = elegido.Proveedor;
-            int quant = elegido.cantidad + Int32.Parse(txt_Cant.Text);
+            int quant =  Int32.Parse(txt_Cant.Text)+ elegido.cantidad;
             double cost = double.Parse(txt_Precio.Text);
             DateTime fecha = fecha_Compra.Value;
 
             //FALTAN CAMPOS
-            if ( quant == 0 || cost == 0 || (Producto_comp)cmb_Depo.SelectedItem == null)
+            if (name == null || quant == 0 || cost == 0 || (Producto_comp)cmb_Depo.SelectedItem == null)
             { MessageBox.Show("Complete todos los campos "); return; };
 
             //crea nuevo producto
@@ -58,12 +54,11 @@ namespace ProyectoFinal
             //borra antiguo
             Program.getSistema().QuitarProducto(elegido);
             //carga nuevo
-            Program.getSistema().agregarProducto(prod);
+            Program.getSistema().agregarProducto(prod , Int32.Parse(txt_Cant.Text));
 
+            MessageBox.Show("SE AGREGO STOCK CORRECTAMENTE");
             frmSTC.Show();
             this.Hide();
-
-
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

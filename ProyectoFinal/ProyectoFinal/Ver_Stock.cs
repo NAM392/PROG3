@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    
+    [Serializable]
     public partial class Ver_Stock : Form
     {
         private Sistema_Rep Deposito;
@@ -35,8 +35,8 @@ namespace ProyectoFinal
 
         private void Ver_Stock_Load(object sender, EventArgs e)
         {
-            List<Costeados> depo = Program.getSistema().getCosteados();
-
+             List<Costeados> depo = Program.getSistema().getCosteados();
+            //List<Producto_comp> depo = Program.getSistema().getDeposito();
             _Deposito.Items.AddRange(depo.ToArray());
 
             double max = 0;

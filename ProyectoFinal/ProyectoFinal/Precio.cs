@@ -10,18 +10,19 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
+    [Serializable]
     public partial class Precio : Form
     {
         private Form method;
         private Form primerFrm;
-        private Sistema_Rep Deposito;
+       
         private Producto_comp Elegido;
         private double Price ;
         private int Cantidad;
-        public Precio(Form prim , Form met , object depo , object elegido , double precio , int cantidad)
+        public Precio(Form prim , Form met  , object elegido , double precio , int cantidad)
         {
 
-            Deposito = (Sistema_Rep)depo;
+            
             method = met;
             primerFrm = prim;
             Elegido = (Producto_comp)elegido;
@@ -48,7 +49,7 @@ namespace ProyectoFinal
         private void btn_Vendido_Click(object sender, EventArgs e)
         {
             /*BOTON VENDER*/
-            Deposito.ProductoVendido(Elegido ,Cantidad );// esta funcion sustrae de la lista el producto vendido
+            Program.getSistema().ProductoVendido(Elegido ,Cantidad );// esta funcion sustrae de la lista el producto vendido
             method.Close(); //cierro el form metodo
             primerFrm.Show();
             this.Hide();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal
 {
+    [Serializable]
     class Costeados
     {
         private string name;

@@ -32,6 +32,7 @@
             this.btn_shStock = new System.Windows.Forms.Button();
             this.btn_sold = new System.Windows.Forms.Button();
             this.btn_ADstock = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_ADitem
@@ -76,11 +77,22 @@
             this.btn_ADstock.UseVisualStyleBackColor = true;
             this.btn_ADstock.Click += new System.EventHandler(this.btn_ADstock_Click);
             // 
+            // btn_close
+            // 
+            this.btn_close.Location = new System.Drawing.Point(244, 255);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(152, 31);
+            this.btn_close.TabIndex = 4;
+            this.btn_close.Text = "Salir";
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
             // STC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 265);
+            this.ClientSize = new System.Drawing.Size(408, 298);
+            this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_ADstock);
             this.Controls.Add(this.btn_sold);
             this.Controls.Add(this.btn_shStock);
@@ -98,6 +110,7 @@
         private System.Windows.Forms.Button btn_shStock;
         private System.Windows.Forms.Button btn_sold;
         private System.Windows.Forms.Button btn_ADstock;
+        private System.Windows.Forms.Button btn_close;
     }
 }
 

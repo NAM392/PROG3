@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-
+    [Serializable]
     public partial class frmMetodo : Form
     {
         private Form frmSTC;
@@ -20,7 +20,6 @@ namespace ProyectoFinal
         {
             frmSTC = stc ;  //REFERENCIA AL FORM INICIAL
             Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en Program
-            
             InitializeComponent();
         }
 
@@ -45,6 +44,8 @@ namespace ProyectoFinal
 
             //PPP  
             lbl_PPP.Text = Program.getSistema().PPP(elegido);
+
+            lbl_stock.Text = elegido.cantidad.ToString();
         }
         public void ActualizarLista()
         {
@@ -98,10 +99,13 @@ namespace ProyectoFinal
                 MessageBox.Show(" INGRESE METODO DE COSTEO ");
                 return;
             }
+
+            //________________________________________________________________________________________
+            //Funcion precio Final devuelve el precio final a vender = (costo + margen de utilidad)
             precio_final = Math.Round(PrecioFinal(elegido));
              
 
-            precio = new Precio(frmSTC, this, Deposito, elegido , precio_final , cantidad);
+            precio = new Precio(frmSTC, this ,  elegido , precio_final , cantidad);
 
             precio.Show();
             this.Hide();

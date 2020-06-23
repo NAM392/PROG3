@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    
+    [Serializable]
+
     public partial class Item : Form
     {
         private Form stac;
@@ -39,9 +40,7 @@ namespace ProyectoFinal
             if (article == 0 || name == null && quant == 0 || cost == 0 || (Proveedor)cmb_Proveedor.SelectedItem == null)
                 { MessageBox.Show("Complete todos los campos "); return; };
 
-            Producto_comp prod = new Producto_comp(name, article, provider, quant, cost , fecha);
-
-
+            Producto_comp prod = Program.getSistema().NuevoProducto(name, article, provider, quant, cost , fecha);
 
             Program.getSistema().agregarProducto(prod);
             
@@ -49,15 +48,11 @@ namespace ProyectoFinal
             LimpiarLista();
             stac.Show();
             this.Hide();
-            
-            
         }
 
         private void Item_Load(object sender, EventArgs e)
         {
-            
             LimpiarLista();
-
         }
         public void LimpiarLista()
         {
@@ -76,17 +71,11 @@ namespace ProyectoFinal
             stac.Show();
             this.Hide();
         }
+
+        private void btn_new_Proveedor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
     }
 

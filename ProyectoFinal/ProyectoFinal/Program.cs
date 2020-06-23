@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,8 +22,15 @@ namespace ProyectoFinal
         [STAThread]
         static void Main()
         {
-            //proveedores iniciales
+            
             s = new Sistema_Rep();
+            
+            //usuario y contraseña
+            Dictionary<string, string> Ingresos = Program.getSistema().getIngresos();
+            Ingresos.Add("nicolas", "minnicelli");
+            Ingresos.Add("mauro", "gullino");
+            Ingresos.Add("Mauro", "Gullino");
+            //proveedores iniciales
             Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
             s.agregarProveedor(pr);
             Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
@@ -37,52 +44,37 @@ namespace ProyectoFinal
             s.agregarProducto(prod);
             s.agregarProducto(prod2);
             s.agregarProducto(prod3);
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new STC());
+            Application.Run(new Login());
 
 
 
             // -----------------------------------
             // descomentar siguiente bloque para la primera ejecución (creación del archivo por 1ra vez)
 
-
-
-
-            /*
+            //el método agregarFactura de Sistema hace un Add en la List<Factura> que vive en Sistema
+            //por eso, cuando serialice Sistema se van a terminar serializando todo los datos.
             
-            Factura f = new Factura();
-            f.agregarItem("Pan", 100);
-            f.agregarItem("Queso", 300);
-            s.agregarFactura(f);    //el método agregarFactura de Sistema hace un Add en la List<Factura> que vive en Sistema
-                                    //por eso, cuando serialice Sistema se van a terminar serializando todo los datos.
 
-            f = new Factura();
-            f.agregarItem("Jamon", 450);
-            f.agregarItem("Queso", 300);
-            s.agregarFactura(f);
-           
-            Stream flujo2 = File.Create("datos.bin");
-            BinaryFormatter serializer = new BinaryFormatter();
-            serializer.Serialize(flujo2, s);
-            flujo2.Close();
-            MessageBox.Show("archivo creado. volver a comentar el bloque en el main.");
-            return; //termina el Main
+                        Stream flujo2 = File.Create("datos.bin");
+                        BinaryFormatter serializer = new BinaryFormatter();
+                        serializer.Serialize(flujo2, s);
+                        flujo2.Close();
+                        MessageBox.Show("archivo creado. volver a comentar el bloque en el main.");
+                        return; //termina el Main
 
-
+            /* 
 
             // -----------------------------------
-             */
 
 
-            
+            //este bloque es la deserialización, donde la clase Sistema que quedó guardada
+            // en el archivo se vuelve a poner en memoria.
 
-           // este bloque es la deserialización, donde la clase Sistema que quedó guardada
-           // en el archivo se vuelve a poner en memoria.
-
-           try
-           {
+            try
+            {
                 
                Stream flujo = File.OpenRead("datos.bin");
                BinaryFormatter deserializer = new BinaryFormatter();
@@ -95,11 +87,11 @@ namespace ProyectoFinal
                MessageBox.Show("descomentar bloque del main para crear el archivo por primera vez. terminando programa.");
                return; //termina el Main
            }
+            
+
+            Application.ApplicationExit += new System.EventHandler(SerializarAlSalir); //ApplicationExit = evento que se dispara al cerrar la app
 
 
-           Application.ApplicationExit += new System.EventHandler(SerializarAlSalir); //ApplicationExit = evento que se dispara al cerrar la app
-
-            /**/
         }
 
         //este método va a ser llamado en el evento ApplicationExit
@@ -116,33 +108,31 @@ namespace ProyectoFinal
     }
 }
 
+*/
 
 
 
 
 
-
-/*using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace EjemploCompletoSerializacion
+namespace ProyectoFinal
 {
     static class Program
     {
-        private static Sistema s; //clase principal del sistema, una "fachada" a los distintos "servicios"
-
-        //este método se puede usar desde cualquier Form para acceder al Sistema
-        //por ejemplo, desde un Form que muestre facturas, podría llamar:
-        //   Program.getSistema().getFacturas()
-        public static Sistema getSistema()  
+        private static Sistema_Rep s;
+        public static Sistema_Rep getSistema()
         {
             return s;
         }
 
-
+        /// <summary>
+        /// Punto de entrada principal para la aplicación.
+        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -150,21 +140,34 @@ namespace EjemploCompletoSerializacion
 
             // -----------------------------------
             // descomentar siguiente bloque para la primera ejecución (creación del archivo por 1ra vez)
-            
+
+            //atras de esto se descomenta
+
+            s = new Sistema_Rep();
+
+            //proveedores iniciales
+            Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
+            Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
+            //fecha
+            DateTime dt = new DateTime( 2019 , 4 , 20) ;
+            //productos iniciales
+            Producto_comp prod = new Producto_comp("Tornillos", 123, pr, 323, 1.4, dt);
+            Producto_comp prod2 = new Producto_comp("Arandelas", 256, pl, 157, 2.3, dt);
+            Producto_comp prod3 = new Producto_comp("Media Omega", 620, pl, 621, 0.75, dt);
+            s.agregarProducto(prod);
+            s.agregarProducto(prod2);
+            s.agregarProducto(prod3);
+            s.agregarProveedor(pl);
+            s.agregarProveedor(pr);
+            //usuario y contraseña
+            s.agregarUser_Pass("nicolas" , "minnicelli" );
+            s.agregarUser_Pass("mauro" , "gullino" );
+            s.agregarUser_Pass("Mauro" , "Gullino" );
+
+            //el método agregarFactura de Sistema hace un Add en la List<Factura> que vive en Sistema
+            //por eso, cuando serialice Sistema se van a terminar serializando todo los datos.
+
             /*
-            
-            s = new Sistema();
-
-            Factura f = new Factura();
-            f.agregarItem("Pan", 100);
-            f.agregarItem("Queso", 300);
-            s.agregarFactura(f);    //el método agregarFactura de Sistema hace un Add en la List<Factura> que vive en Sistema
-                                    //por eso, cuando serialice Sistema se van a terminar serializando todo los datos.
-
-            f = new Factura();
-            f.agregarItem("Jamon", 450);
-            f.agregarItem("Queso", 300);
-            s.agregarFactura(f);
 
             Stream flujo2 = File.Create("datos.bin");
             BinaryFormatter serializer = new BinaryFormatter();
@@ -172,9 +175,9 @@ namespace EjemploCompletoSerializacion
             flujo2.Close();
             MessageBox.Show("archivo creado. volver a comentar el bloque en el main.");
             return; //termina el Main
-            
-         ///\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-            
+
+             *///atras de esto se comenta
+
             // -----------------------------------
 
 
@@ -187,7 +190,7 @@ namespace EjemploCompletoSerializacion
             {
                 Stream flujo = File.OpenRead("datos.bin");
                 BinaryFormatter deserializer = new BinaryFormatter();
-                s = (Sistema) deserializer.Deserialize(flujo);
+                s = (Sistema_Rep)deserializer.Deserialize(flujo);
                 flujo.Close();
             }
             catch (Exception e)
@@ -202,21 +205,20 @@ namespace EjemploCompletoSerializacion
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1()); 
+            Application.Run(new Login());
         }
 
         //este método va a ser llamado en el evento ApplicationExit
         //por lo tanto se ejecuta justo antes de que la aplicación termine, siempre
         public static void SerializarAlSalir(object sender, EventArgs e)
-{
-    Stream flujo2 = File.Create("datos.bin");
-    BinaryFormatter serializer = new BinaryFormatter();
-    serializer.Serialize(flujo2, s);  //notar que lo que se serializa es Sistema, y con ello recursivamente todo lo demás
-    flujo2.Close();
-    MessageBox.Show("objeto serializado ok. terminando programa.");
-}
+        {
+            Stream flujo2 = File.Create("datos.bin");
+            BinaryFormatter serializer = new BinaryFormatter();
+            serializer.Serialize(flujo2, s);  //notar que lo que se serializa es Sistema, y con ello recursivamente todo lo demás
+            flujo2.Close();
+            MessageBox.Show("objeto serializado ok. terminando programa.");
+        }
 
 
     }
 }
-*/

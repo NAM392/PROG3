@@ -47,6 +47,8 @@
             this.lbl_cant = new System.Windows.Forms.Label();
             this.txtCant = new System.Windows.Forms.TextBox();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_stock = new System.Windows.Forms.Label();
             this.grpCosteo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,7 +199,7 @@
             this.cmb_Todos.FormattingEnabled = true;
             this.cmb_Todos.Location = new System.Drawing.Point(31, 38);
             this.cmb_Todos.Name = "cmb_Todos";
-            this.cmb_Todos.Size = new System.Drawing.Size(179, 24);
+            this.cmb_Todos.Size = new System.Drawing.Size(122, 24);
             this.cmb_Todos.TabIndex = 9;
             this.cmb_Todos.SelectedIndexChanged += new System.EventHandler(this.cmb_Todos_SelectedIndexChanged);
             // 
@@ -236,11 +238,31 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(177, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Stock";
+            // 
+            // lbl_stock
+            // 
+            this.lbl_stock.AutoSize = true;
+            this.lbl_stock.Location = new System.Drawing.Point(189, 41);
+            this.lbl_stock.Name = "lbl_stock";
+            this.lbl_stock.Size = new System.Drawing.Size(16, 17);
+            this.lbl_stock.TabIndex = 15;
+            this.lbl_stock.Text = "0";
+            // 
             // frmMetodo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 338);
+            this.Controls.Add(this.lbl_stock);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.txtCant);
             this.Controls.Add(this.lbl_cant);
@@ -282,5 +304,7 @@
         private System.Windows.Forms.Label lbl_FIFO;
         private System.Windows.Forms.TextBox txtCant;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_stock;
     }
 }
