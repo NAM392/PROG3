@@ -20,7 +20,7 @@ namespace ProyectoFinal
         public frmMetodo(Form stc , object sistema )
         {
             frmSTC = stc ;  //REFERENCIA AL FORM INICIAL
-            Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en Program
+            //Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en Program
             InitializeComponent();
             
         }
@@ -34,22 +34,20 @@ namespace ProyectoFinal
 
         
         private void cmb_Todos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            Cantidad = 120;
-            if (Cantidad == 0) { MessageBox.Show("INDIQUE CANTIDAD"); }
+        {        
+            
             //MUESTRA EL PRELIMINAR DEL COSTEO , EL LBL QUE TE DICE POR CUANTO SE CALCULARIA
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
-
+            
             //FIFO
-            lbl_FIFO.Text = Program.getSistema().FIFO(elegido , Cantidad);
+            lbl_FIFO.Text = Program.getSistema().FIFO(elegido);
 
             //LIFO
-            lbl_LIFO.Text = Program.getSistema().LIFO(elegido, Cantidad);
+            lbl_LIFO.Text = Program.getSistema().LIFO(elegido);
 
             //PPP  
             lbl_PPP.Text = Program.getSistema().PPP(elegido);
-
+            //MUESTRA STOCK DISPONIBLE            
             lbl_stock.Text = elegido.cantidad.ToString();
         }
         public void ActualizarLista()
@@ -69,47 +67,40 @@ namespace ProyectoFinal
             //BOTON ACEPTAR FORM METODO
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
             double precio_final = 0;
-            int cantidad = Cantidad;
+            int cantidad = int.Parse(txtCant.Text);
             /******ERRORES AL INGRESO******/
             
             //no selecciono nada
-            if(elegido == null) { MessageBox.Show("Seleccione Producto");return; }
+            if(elegido == null) { MessageBox.Show(" Seleccione Producto ");return; }
             //sin stock
             if (elegido.cantidad < int.Parse(txtCant.Text))
             {
-                MessageBox.Show("NO HAY STOCK");
+                MessageBox.Show(" No Hay Stock ");
                 return;
             }
             //no elije cantidad
             if ( int.Parse(txtCant.Text) <= 0 )
             {
-                MessageBox.Show("INGRESE CANTIDAD");
+                MessageBox.Show(" Ingrese Cantidad ");
                 return;
             }
             // % mayor a 100
             if (double.Parse(txt_Margen.Text) > 100 )
             {
-                MessageBox.Show(" MARGEN MAYOR A 100%  ");
+                MessageBox.Show(" Margen de Utilidad Mayor al 100%  ");
                 return;
             }
             // margen 0
             if (double.Parse(txt_Margen.Text) <= 0)
             {
-                MessageBox.Show(" INGRESE MARGEN DE UTILIDAD ");
+                MessageBox.Show(" Ingrese Margen de Utilidad ");
                 return;
             }
-            //no eligio costeo
-            if(OP_FIFO.Checked == false && OP_LIFO.Checked == false && OP_PPP.Checked == false)
-            {
-                MessageBox.Show(" INGRESE METODO DE COSTEO ");
-                return;
-            }
+
 
             //________________________________________________________________________________________
-            //Funcion precio Final devuelve el precio final a vender = (costo + margen de utilidad)
+            //Funcion precio Final devuelve el precio final a vender (costo + margen de utilidad)
             precio_final = Math.Round(PrecioFinal(elegido) , 2);
-             
-
             precio = new Precio(frmSTC, this ,  elegido , precio_final , cantidad);
 
             precio.Show();
@@ -170,6 +161,7 @@ namespace ProyectoFinal
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            //BOTON CANCELAR
             frmSTC.Show();
             this.Close();
         }

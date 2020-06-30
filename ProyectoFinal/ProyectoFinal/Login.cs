@@ -23,7 +23,7 @@ namespace ProyectoFinal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //VERIFICO SI EL USUARIO Y LA CONTRASEÑA CORRECTO
+            //VERIFICO SI EL USUARIO Y LA CONTRASEÑA SON CORRECTOS
             bool ingreso = Program.getSistema().VerificaUsuarioyPass(txt_user.Text, txt_pass.Text);
             
             if(ingreso == true) 
@@ -34,9 +34,9 @@ namespace ProyectoFinal
             else
             {
                 intentos++;
-                MessageBox.Show("Error al ingresar -  Reingrese datos ", intentos.ToString() + " de 3");
+                MessageBox.Show("Error al ingresar -  Reingrese datos ","Intento : " + intentos.ToString() + " de 3");
             }
-            if(intentos == 3) { this.Hide(); }
+            if(intentos == 3) { this.Close(); }
             
 
 

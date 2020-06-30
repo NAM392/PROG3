@@ -12,16 +12,14 @@ namespace ProyectoFinal
 {
     
     public partial class Ver_Stock : Form
-    {
-        private List<Producto_comp> Deposito;
+    {        
         private Form frmSTC;
         private List<Costeados> depo;
         public Ver_Stock(Form stc)
         {
             InitializeComponent();
             frmSTC = stc;
-            depo = Program.getSistema().getCosteados();
-            Deposito = Program.getSistema().getDeposito();
+            depo = Program.getSistema().getCosteados();   
         }
 
         private void btn_STNom_Click(object sender, EventArgs e)
@@ -31,12 +29,15 @@ namespace ProyectoFinal
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            //BOTON CANCELAR
             frmSTC.Show();
             this.Close();
         }
 
         private void Ver_Stock_Load(object sender, EventArgs e)
-        {   //TRAIGO LA LISTA DE COSTEADOS
+        {  //** BOTON VER STOCK **
+            
+            //TRAIGO LA LISTA DE COSTEADOS
              List<Costeados> depo = Program.getSistema().getCosteados();
             //ORDENO LA LISTA DE COSTEADOS Y LA MUESTRO
             depo.Sort((x, y) => x.date.CompareTo(y.date));
@@ -73,11 +74,9 @@ namespace ProyectoFinal
         }
 
         private void btn_Select_Click(object sender, EventArgs e)
-        {
-            //List<Costeados> depo = Program.getSistema().getCosteados();
-            
+        {                      
             List<Costeados> Seleccionados = new List<Costeados>();
-            Costeados n;
+            Costeados VerLosCosteados;
             Proveedor elegido = (Proveedor)cmb_Proveedor.SelectedItem;
             //ERROR NO ELIGIO PROVEEDOR
             if(elegido == null) { MessageBox.Show("Seleccione Proveedor");return; }
@@ -91,8 +90,8 @@ namespace ProyectoFinal
                     if(c.Proveedor == elegido )
                     {
                         //AGREGO EN LA LISTA DE SELECCIONADOS ESTE PRODUCTO PARA PODER VISUALIZARSE
-                        n = new Costeados(c.Nombre, c.cod_articulo , c.precio, c.cantidad, c.date, c.Proveedor);
-                        Seleccionados.Add(n);
+                        VerLosCosteados = new Costeados(c.Nombre, c.cod_articulo , c.precio, c.cantidad, c.date, c.Proveedor);
+                        Seleccionados.Add(VerLosCosteados);
                     }
                 }
             }
@@ -102,16 +101,10 @@ namespace ProyectoFinal
             _Deposito.Items.Clear();
             _Deposito.Items.AddRange(Seleccionados.ToArray());
 
-
-
-
-
-
-
         }
 
         private void btn_Todo_Click(object sender, EventArgs e)
-        {             
+        {    //VISUALIZAR EL DEPOSITO COMPLETO         
             _Deposito.Items.Clear();
              depo.Sort((x, y) => x.date.CompareTo(y.date));
             _Deposito.Items.AddRange(depo.ToArray());

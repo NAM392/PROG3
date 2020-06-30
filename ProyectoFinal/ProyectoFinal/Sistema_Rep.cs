@@ -132,7 +132,7 @@ namespace ProyectoFinal
             return n;
 
         }
-        //AGREGA UN PRODUCTO EN EL DEPOSITO
+        //AGREGA UN PRODUCTO NUEVO EN EL DEPOSITO
         public void agregarProducto(Producto_comp agregar)
         {
             Costeados n = new Costeados(agregar.Nombre, agregar.cod_articulo, agregar.precio, agregar.cantidad, agregar.date , agregar.Proveedor);
@@ -140,7 +140,7 @@ namespace ProyectoFinal
             Deposito.Add(agregar);
           
         }
-        //AGREGAR UN PRODUCTO EN DEPOSITO , CAMBIAR EN COSTO
+        //AGREGAR UN PRODUCTO EN DEPOSITO  , CAMBIAR EN COSTO
         //SOBRECARGA DE METODOS
         public void agregarProducto(Producto_comp agregar , int cantidad)
         {
@@ -167,35 +167,23 @@ namespace ProyectoFinal
             Deposito.Remove(quit);
         }
         //FUNCION CALCULAR FIFO
-        public string FIFO(Producto_comp elegido , int Cantidad)
+        public string FIFO(Producto_comp elegido)
         {
             //Ordena la Lista CalculoCosto por Fecha 
             CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
-            //LO QUE NESECITO
-            int LoQueNesecito = Cantidad;
-            //precio
-            double Precio = 0;
-            int cantidad = 0;
 
-            foreach (var c in CalculoCosto)
+            foreach (var C in CalculoCosto)
             {
-                if (c.Nombre == elegido.Nombre && c.cantidad >= Cantidad)
+                if (C.Nombre == elegido.Nombre)
                 {
-                    return (Math.Round(c.precio , 4)).ToString();
+                    return (Math.Round(C.precio, 4)).ToString();
                 }
-                else if (c.Nombre == elegido.Nombre && LoQueNesecito > 0)
-                {
-                    Precio = Precio + (c.precio * c.cantidad);
-                    cantidad = cantidad + c.cantidad;
-                    LoQueNesecito = LoQueNesecito - c.cantidad;
-                };
-                if (LoQueNesecito == 0) { return Math.Round((Precio / cantidad),4).ToString(); }; 
-
             }
+
             return "0";
         }
         //FUNCION CALCULAR LIFO
-        public string LIFO(Producto_comp elegido , int Cantidad)
+        public string LIFO(Producto_comp elegido)
         {
             //Ordena la Lista CalculoCosto por Fecha 
             CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
@@ -207,7 +195,7 @@ namespace ProyectoFinal
             {
                 if (L.Nombre == elegido.Nombre )
                 {
-                    return (Math.Round(L.precio , 4)).ToString();
+                    return (Math.Round(L.precio , 2)).ToString();
                 }
             }
 
@@ -221,7 +209,6 @@ namespace ProyectoFinal
             int cont = 0;
             double acum = 0;
 
-
             foreach (var C in CalculoCosto)
             {
                 if (C.Nombre == elegido.Nombre)
@@ -232,10 +219,8 @@ namespace ProyectoFinal
             }
 
             return (acum / cont).ToString();
-
-            //return "0";
+           
         }
-
 
     }
 }

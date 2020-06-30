@@ -24,7 +24,9 @@ namespace ProyectoFinal
         {
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
             txt_Cant.Text = "0";
-            txt_Precio.Text = elegido.precio.ToString();
+            txt_Precio.Text = elegido.precio.ToString(); //muestra el precio del producto que ya tengo en deposito
+
+            //No se puede agregar stock con fecha anterior a la  compra de ese mismo producto
             fecha_Compra.MinDate = elegido.date;
             fecha_Compra.MaxDate = DateTime.MaxValue;
         }
@@ -36,6 +38,7 @@ namespace ProyectoFinal
 
         private void btn_Accept_Click(object sender, EventArgs e)
         {
+            //***BOTON ACEPTAR***
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
 
             /*ERRORES*/
@@ -44,7 +47,7 @@ namespace ProyectoFinal
             if (elegido == null) { MessageBox.Show("Seleccione Producto"); return; }
             //FALTAN CAMPOS
             if (elegido.Nombre == null || txt_Cant.Text == "0" || double.Parse(txt_Precio.Text) == 0)
-            { MessageBox.Show("Complete todos los campos "); return; };
+            { MessageBox.Show(" Complete todos los campos "); return; };
 
             string name = elegido.Nombre;
             int article = elegido.cod_articulo;
@@ -61,13 +64,14 @@ namespace ProyectoFinal
             //carga nuevo
             Program.getSistema().agregarProducto(prod , Int32.Parse(txt_Cant.Text));
 
-            MessageBox.Show("SE AGREGO STOCK CORRECTAMENTE");
+            MessageBox.Show(" SE AGREGO STOCK CORRECTAMENTE " );
             frmSTC.Show();
             this.Hide();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            //BOTON CANCELAR
             frmSTC.Show();
             this.Hide();
             

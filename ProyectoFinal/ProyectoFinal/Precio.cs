@@ -15,7 +15,7 @@ namespace ProyectoFinal
     {
         private Form method;
         private Form primerFrm;
-       
+   
         private Producto_comp Elegido;
         private double Price ;
         private int Cantidad;
@@ -49,9 +49,9 @@ namespace ProyectoFinal
         private void btn_Vendido_Click(object sender, EventArgs e)
         {
             /*BOTON VENDER*/
-            Program.getSistema().ProductoVendido(Elegido ,Cantidad );// esta funcion sustrae de la lista el producto vendido
+            Program.getSistema().ProductoVendido(Elegido , Cantidad );// esta funcion sustrae de la lista el producto vendido
             method.Close(); //cierro el form metodo
-            MessageBox.Show("EL PRODUCTO HA SIDO VENDIDO");
+            MessageBox.Show("EL PRODUCTO HA SIDO VENDIDO ");
             primerFrm.Show();
             this.Hide();
 

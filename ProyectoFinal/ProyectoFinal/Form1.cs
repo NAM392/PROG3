@@ -23,8 +23,7 @@ namespace ProyectoFinal
         public STC(Form log)
         {
             InitializeComponent();
-            sistema = Program.getSistema(); 
-            
+            sistema = Program.getSistema();           
             login = log;
         }
 
@@ -37,7 +36,6 @@ namespace ProyectoFinal
             Metodo.Show();
             this.Hide();
 
-
         }
 
         private void btn_ADitem_Click(object sender, EventArgs e)
@@ -45,8 +43,7 @@ namespace ProyectoFinal
             /*BOTON CREAR ITEM */
             items = new Item(this);
             items.Show();
-            this.Hide();
-            
+            this.Hide();         
 
         }
 
@@ -66,6 +63,7 @@ namespace ProyectoFinal
 
         private void btn_ADstock_Click(object sender, EventArgs e)
         {
+            /**BOTON AGREGAR STOCK**/
             agregar = new AD_Stock(this);
             agregar.Show();
             this.Hide();
@@ -74,6 +72,7 @@ namespace ProyectoFinal
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+            /**BOTON SALIR**/
             this.Close();
             login.Close();
         }
