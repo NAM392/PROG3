@@ -24,7 +24,7 @@ namespace ProyectoFinal
         {
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
             txt_Cant.Text = "0";
-            txt_Precio.Text = elegido.prec.ToString();
+            txt_Precio.Text = elegido.precio.ToString();
             fecha_Compra.MinDate = elegido.date;
             fecha_Compra.MaxDate = DateTime.MaxValue;
         }
@@ -71,6 +71,21 @@ namespace ProyectoFinal
             frmSTC.Show();
             this.Hide();
             
+        }
+
+        private void txt_Cant_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Cant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroEnteros(e);
+        }
+
+        private void txt_Precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroDecimal(e);
         }
     }
 }

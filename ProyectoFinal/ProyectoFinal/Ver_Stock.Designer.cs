@@ -39,11 +39,12 @@
             this.cmb_Proveedor = new System.Windows.Forms.ComboBox();
             this._Deposito = new System.Windows.Forms.ListBox();
             this.btn_Select = new System.Windows.Forms.Button();
+            this.btn_Todo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(12, 269);
+            this.btn_Cancel.Location = new System.Drawing.Point(12, 285);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(163, 35);
             this.btn_Cancel.TabIndex = 4;
@@ -104,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 156);
+            this.label4.Location = new System.Drawing.Point(12, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 11;
@@ -114,7 +115,7 @@
             // cmb_Proveedor
             // 
             this.cmb_Proveedor.FormattingEnabled = true;
-            this.cmb_Proveedor.Location = new System.Drawing.Point(12, 176);
+            this.cmb_Proveedor.Location = new System.Drawing.Point(15, 173);
             this.cmb_Proveedor.Name = "cmb_Proveedor";
             this.cmb_Proveedor.Size = new System.Drawing.Size(152, 24);
             this.cmb_Proveedor.TabIndex = 12;
@@ -125,13 +126,13 @@
             this._Deposito.ItemHeight = 16;
             this._Deposito.Location = new System.Drawing.Point(196, 12);
             this._Deposito.Name = "_Deposito";
-            this._Deposito.Size = new System.Drawing.Size(642, 276);
+            this._Deposito.Size = new System.Drawing.Size(677, 308);
             this._Deposito.TabIndex = 14;
             this._Deposito.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btn_Select
             // 
-            this.btn_Select.Location = new System.Drawing.Point(12, 216);
+            this.btn_Select.Location = new System.Drawing.Point(12, 203);
             this.btn_Select.Name = "btn_Select";
             this.btn_Select.Size = new System.Drawing.Size(163, 35);
             this.btn_Select.TabIndex = 15;
@@ -139,11 +140,22 @@
             this.btn_Select.UseVisualStyleBackColor = true;
             this.btn_Select.Click += new System.EventHandler(this.btn_Select_Click);
             // 
+            // btn_Todo
+            // 
+            this.btn_Todo.Location = new System.Drawing.Point(12, 244);
+            this.btn_Todo.Name = "btn_Todo";
+            this.btn_Todo.Size = new System.Drawing.Size(163, 35);
+            this.btn_Todo.TabIndex = 16;
+            this.btn_Todo.Text = "Ver Todo";
+            this.btn_Todo.UseVisualStyleBackColor = true;
+            this.btn_Todo.Click += new System.EventHandler(this.btn_Todo_Click);
+            // 
             // Ver_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 316);
+            this.ClientSize = new System.Drawing.Size(885, 329);
+            this.Controls.Add(this.btn_Todo);
             this.Controls.Add(this.btn_Select);
             this.Controls.Add(this._Deposito);
             this.Controls.Add(this.cmb_Proveedor);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.ComboBox cmb_Proveedor;
         private System.Windows.Forms.ListBox _Deposito;
         private System.Windows.Forms.Button btn_Select;
+        private System.Windows.Forms.Button btn_Todo;
     }
 }

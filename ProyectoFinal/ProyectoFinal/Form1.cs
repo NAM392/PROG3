@@ -58,7 +58,7 @@ namespace ProyectoFinal
         private void btn_shStock_Click(object sender, EventArgs e)
         {
             /*BOTON VER DEPOSITO*/
-            stock = new Ver_Stock(sistema, this);  //creo un nuevo form stock para refrescar la lista
+            stock = new Ver_Stock(this);  //creo un nuevo form stock para refrescar la lista
             stock.Show();
             this.Hide();
 

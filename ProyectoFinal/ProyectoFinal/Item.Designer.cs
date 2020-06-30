@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_codP = new System.Windows.Forms.Label();
             this.lbl_nom = new System.Windows.Forms.Label();
             this.lbl_Prov = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.lblfech = new System.Windows.Forms.Label();
             this.Fecha_Date = new System.Windows.Forms.DateTimePicker();
+            this.AD_prov = new System.Windows.Forms.Button();
+            this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lbl_codP
@@ -86,6 +89,7 @@
             this.txt_CodProd.Name = "txt_CodProd";
             this.txt_CodProd.Size = new System.Drawing.Size(184, 22);
             this.txt_CodProd.TabIndex = 2;
+            this.txt_CodProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodProd_KeyPress);
             // 
             // txtNom
             // 
@@ -101,6 +105,9 @@
             this.txt_Cant.Name = "txt_Cant";
             this.txt_Cant.Size = new System.Drawing.Size(184, 22);
             this.txt_Cant.TabIndex = 4;
+            this.txt_Cant.TextChanged += new System.EventHandler(this.txt_Cant_TextChanged);
+            this.txt_Cant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cant_KeyPress);
+            this.txt_Cant.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Cant_KeyUp);
             // 
             // txt_Precio
             // 
@@ -108,6 +115,7 @@
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(184, 22);
             this.txt_Precio.TabIndex = 5;
+            this.txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_KeyPress);
             // 
             // lbl_CostoU
             // 
@@ -162,11 +170,26 @@
             this.Fecha_Date.Size = new System.Drawing.Size(248, 22);
             this.Fecha_Date.TabIndex = 14;
             // 
+            // AD_prov
+            // 
+            this.AD_prov.Location = new System.Drawing.Point(242, 139);
+            this.AD_prov.Name = "AD_prov";
+            this.AD_prov.Size = new System.Drawing.Size(43, 23);
+            this.AD_prov.TabIndex = 15;
+            this.AD_prov.Text = "+";
+            this.AD_prov.UseVisualStyleBackColor = true;
+            this.AD_prov.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ttmensaje
+            // 
+            this.ttmensaje.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 382);
+            this.Controls.Add(this.AD_prov);
             this.Controls.Add(this.Fecha_Date);
             this.Controls.Add(this.lblfech);
             this.Controls.Add(this.btn_Close);
@@ -205,5 +228,7 @@
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Label lblfech;
         private System.Windows.Forms.DateTimePicker Fecha_Date;
+        private System.Windows.Forms.Button AD_prov;
+        private System.Windows.Forms.ToolTip ttmensaje;
     }
 }

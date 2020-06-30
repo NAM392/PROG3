@@ -64,6 +64,8 @@
             this.txt_Cant.Name = "txt_Cant";
             this.txt_Cant.Size = new System.Drawing.Size(100, 22);
             this.txt_Cant.TabIndex = 2;
+            this.txt_Cant.TextChanged += new System.EventHandler(this.txt_Cant_TextChanged);
+            this.txt_Cant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cant_KeyPress);
             // 
             // label1
             // 
@@ -116,6 +118,7 @@
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(100, 22);
             this.txt_Precio.TabIndex = 7;
+            this.txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_KeyPress);
             // 
             // label2
             // 

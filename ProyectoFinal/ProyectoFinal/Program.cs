@@ -145,40 +145,41 @@ namespace ProyectoFinal
 
             /*//atras de esto se descomenta
 
-           s = new Sistema_Rep();
+            s = new Sistema_Rep();
 
-           //proveedores iniciales
-           Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
-           Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
-           //fecha
-           DateTime dt = new DateTime( 2019 , 4 , 20) ;
-           //productos iniciales
-           Producto_comp prod = new Producto_comp("Tornillos", 123, pr, 323, 1.4, dt);
-           Producto_comp prod2 = new Producto_comp("Arandelas", 256, pl, 157, 2.3, dt);
-           Producto_comp prod3 = new Producto_comp("Media Omega", 620, pl, 621, 0.75, dt);
-           s.agregarProducto(prod);
-           s.agregarProducto(prod2);
-           s.agregarProducto(prod3);
-           s.agregarProveedor(pl);
-           s.agregarProveedor(pr);
-           //usuario y contraseña
-           s.agregarUser_Pass("nicolas" , "minnicelli" );
-           s.agregarUser_Pass("mauro" , "gullino" );
-           s.agregarUser_Pass("Mauro" , "Gullino" );
+            //proveedores iniciales
+            Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
+            Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
+            //fecha
+            DateTime dt = new DateTime( 2019 , 4 , 20) ;
+            DateTime dt2 = new DateTime( 2020 , 5 , 3) ;
+            DateTime dt3 = new DateTime( 2018 , 8 , 31) ;
+            //productos iniciales
+            Producto_comp prod = new Producto_comp("Tornillos", 123, pr, 323, 1.4, dt);
+            Producto_comp prod2 = new Producto_comp("Arandelas", 256, pl, 157, 2.3, dt2);
+            Producto_comp prod3 = new Producto_comp("Media Omega", 620, pl, 111, 0.75, dt3);
+            s.agregarProducto(prod);
+            s.agregarProducto(prod2);
+            s.agregarProducto(prod3);
+            s.agregarProveedor(pl);
+            s.agregarProveedor(pr);
+            //usuario y contraseña
+            s.agregarUser_Pass("nicolas" , "minnicelli" );
+            s.agregarUser_Pass("mauro" , "gullino" );
+            s.agregarUser_Pass("Mauro" , "Gullino" );
 
-              //el método agregarFactura de Sistema hace un Add en la List<Factura> que vive en Sistema
-              //por eso, cuando serialice Sistema se van a terminar serializando todo los datos.
+               
 
 
 
-               Stream flujo2 = File.Create("datos.bin");
-               BinaryFormatter serializer = new BinaryFormatter();
-               serializer.Serialize(flujo2, s);
-               flujo2.Close();
-               MessageBox.Show("archivo creado. volver a comentar el bloque en el main.");
-               return; //termina el Main
+                Stream flujo2 = File.Create("datos.bin");
+                BinaryFormatter serializer = new BinaryFormatter();
+                serializer.Serialize(flujo2, s);
+                flujo2.Close();
+                MessageBox.Show("archivo creado. volver a comentar el bloque en el main.");
+                return; //termina el Main
 
-               *///atras de esto se comenta
+            *///atras de esto se comenta
 
             // -----------------------------------
 

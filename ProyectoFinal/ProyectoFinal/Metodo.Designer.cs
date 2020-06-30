@@ -67,6 +67,8 @@
             this.txt_Margen.Name = "txt_Margen";
             this.txt_Margen.Size = new System.Drawing.Size(74, 22);
             this.txt_Margen.TabIndex = 1;
+            this.txt_Margen.TextChanged += new System.EventHandler(this.txt_Margen_TextChanged);
+            this.txt_Margen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Margen_KeyPress);
             // 
             // lbl2
             // 
@@ -227,6 +229,7 @@
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(74, 22);
             this.txtCant.TabIndex = 12;
+            this.txtCant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCant_KeyPress);
             // 
             // btn_Cancel
             // 

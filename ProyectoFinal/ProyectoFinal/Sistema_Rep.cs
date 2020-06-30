@@ -78,7 +78,7 @@ namespace ProyectoFinal
                 int article = vendido.cod_articulo;
                 Proveedor provider = vendido.Proveedor;
                 int quant = vendido.cantidad - cantidad;
-                double cost = vendido.prec;
+                double cost = vendido.precio;
                 DateTime fecha = vendido.date;
                 Producto_comp prod = new Producto_comp(name, article, provider, quant, cost, fecha);
                 VendidoCosteado(prod , cantidad);
@@ -97,7 +97,7 @@ namespace ProyectoFinal
             {
                 if (C.Nombre == vendido.Nombre)
                 {
-                    costeado = new Costeados(vendido.Nombre, vendido.prec, vendido.cantidad , vendido.date, vendido.Proveedor);
+                    costeado = new Costeados(vendido.Nombre,vendido.cod_articulo , vendido.precio, vendido.cantidad , vendido.date, vendido.Proveedor);
                     vend.Add(C);
                 }
             }
@@ -135,7 +135,7 @@ namespace ProyectoFinal
         //AGREGA UN PRODUCTO EN EL DEPOSITO
         public void agregarProducto(Producto_comp agregar)
         {
-            Costeados n = new Costeados(agregar.Nombre, agregar.prec, agregar.cantidad, agregar.date , agregar.Proveedor);
+            Costeados n = new Costeados(agregar.Nombre, agregar.cod_articulo, agregar.precio, agregar.cantidad, agregar.date , agregar.Proveedor);
             CalculoCosto.Add(n);
             Deposito.Add(agregar);
           
@@ -144,7 +144,7 @@ namespace ProyectoFinal
         //SOBRECARGA DE METODOS
         public void agregarProducto(Producto_comp agregar , int cantidad)
         {
-            Costeados n = new Costeados(agregar.Nombre, agregar.prec, cantidad  , agregar.date, agregar.Proveedor);
+            Costeados n = new Costeados(agregar.Nombre, agregar.cod_articulo , agregar.precio, cantidad  , agregar.date, agregar.Proveedor);
             
             CalculoCosto.Add(n);
             Deposito.Add(agregar);
@@ -167,21 +167,35 @@ namespace ProyectoFinal
             Deposito.Remove(quit);
         }
         //FUNCION CALCULAR FIFO
-        public string FIFO(Producto_comp elegido)
+        public string FIFO(Producto_comp elegido , int Cantidad)
         {
             //Ordena la Lista CalculoCosto por Fecha 
             CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
+            //LO QUE NESECITO
+            int LoQueNesecito = Cantidad;
+            //precio
+            double Precio = 0;
+            int cantidad = 0;
+
             foreach (var c in CalculoCosto)
             {
-                if (c.Nombre == elegido.Nombre)
+                if (c.Nombre == elegido.Nombre && c.cantidad >= Cantidad)
                 {
-                    return (Math.Round(c.precio , 2)).ToString();
+                    return (Math.Round(c.precio , 4)).ToString();
                 }
+                else if (c.Nombre == elegido.Nombre && LoQueNesecito > 0)
+                {
+                    Precio = Precio + (c.precio * c.cantidad);
+                    cantidad = cantidad + c.cantidad;
+                    LoQueNesecito = LoQueNesecito - c.cantidad;
+                };
+                if (LoQueNesecito == 0) { return Math.Round((Precio / cantidad),4).ToString(); }; 
+
             }
             return "0";
         }
         //FUNCION CALCULAR LIFO
-        public string LIFO(Producto_comp elegido)
+        public string LIFO(Producto_comp elegido , int Cantidad)
         {
             //Ordena la Lista CalculoCosto por Fecha 
             CalculoCosto.Sort((x, y) => x.date.CompareTo(y.date));
@@ -191,9 +205,9 @@ namespace ProyectoFinal
 
             foreach (var L in ListaInvertida)
             {
-                if (L.Nombre == elegido.Nombre)
+                if (L.Nombre == elegido.Nombre )
                 {
-                    return (Math.Round(L.precio , 2)).ToString();
+                    return (Math.Round(L.precio , 4)).ToString();
                 }
             }
 

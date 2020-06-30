@@ -15,12 +15,14 @@ namespace ProyectoFinal
     {
         private Form frmSTC;
         private Precio precio;
-        private Sistema_Rep Deposito; 
+        private Sistema_Rep Deposito;
+        private int Cantidad;
         public frmMetodo(Form stc , object sistema )
         {
             frmSTC = stc ;  //REFERENCIA AL FORM INICIAL
             Deposito = (Sistema_Rep)sistema; // REFERENCIA A LA CLASE Sistema_Rep que se instancio en Program
             InitializeComponent();
+            
         }
 
         private void frmMetodo_Load(object sender, EventArgs e)
@@ -33,14 +35,17 @@ namespace ProyectoFinal
         
         private void cmb_Todos_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            Cantidad = 120;
+            if (Cantidad == 0) { MessageBox.Show("INDIQUE CANTIDAD"); }
             //MUESTRA EL PRELIMINAR DEL COSTEO , EL LBL QUE TE DICE POR CUANTO SE CALCULARIA
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
 
             //FIFO
-            lbl_FIFO.Text = Program.getSistema().FIFO(elegido);
+            lbl_FIFO.Text = Program.getSistema().FIFO(elegido , Cantidad);
 
             //LIFO
-            lbl_LIFO.Text = Program.getSistema().LIFO(elegido);
+            lbl_LIFO.Text = Program.getSistema().LIFO(elegido, Cantidad);
 
             //PPP  
             lbl_PPP.Text = Program.getSistema().PPP(elegido);
@@ -64,7 +69,7 @@ namespace ProyectoFinal
             //BOTON ACEPTAR FORM METODO
             Producto_comp elegido = (Producto_comp)cmb_Todos.SelectedItem;
             double precio_final = 0;
-            int cantidad = int.Parse(txtCant.Text);
+            int cantidad = Cantidad;
             /******ERRORES AL INGRESO******/
             
             //no selecciono nada
@@ -82,13 +87,13 @@ namespace ProyectoFinal
                 return;
             }
             // % mayor a 100
-            if (int.Parse(txt_Margen.Text) > 100 )
+            if (double.Parse(txt_Margen.Text) > 100 )
             {
                 MessageBox.Show(" MARGEN MAYOR A 100%  ");
                 return;
             }
             // margen 0
-            if (int.Parse(txt_Margen.Text) <= 0)
+            if (double.Parse(txt_Margen.Text) <= 0)
             {
                 MessageBox.Show(" INGRESE MARGEN DE UTILIDAD ");
                 return;
@@ -102,7 +107,7 @@ namespace ProyectoFinal
 
             //________________________________________________________________________________________
             //Funcion precio Final devuelve el precio final a vender = (costo + margen de utilidad)
-            precio_final = Math.Round(PrecioFinal(elegido));
+            precio_final = Math.Round(PrecioFinal(elegido) , 2);
              
 
             precio = new Precio(frmSTC, this ,  elegido , precio_final , cantidad);
@@ -167,6 +172,21 @@ namespace ProyectoFinal
         {
             frmSTC.Show();
             this.Close();
+        }
+
+        private void txt_Margen_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txt_Margen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroDecimal(e);
+        }
+
+        private void txtCant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroEnteros(e);
         }
     }
 }

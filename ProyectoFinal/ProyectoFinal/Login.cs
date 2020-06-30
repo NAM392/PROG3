@@ -23,6 +23,7 @@ namespace ProyectoFinal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //VERIFICO SI EL USUARIO Y LA CONTRASEÑA CORRECTO
             bool ingreso = Program.getSistema().VerificaUsuarioyPass(txt_user.Text, txt_pass.Text);
             
             if(ingreso == true) 

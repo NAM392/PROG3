@@ -9,18 +9,21 @@ namespace ProyectoFinal
     [Serializable]
     class Costeados
     {
+        //CLASE DE PRODUCTOS (AUXILIAR DE Producto_Comp PARA PODER COSTEAR LOS PRODUCTOS INGRESADOS)
         private string name;
         private int quantity;
         private double price_un;
         private DateTime Fecha;
+        private int codigo;
         private Proveedor proveed;
-        public Costeados(string nombre , double precio_unidad , int cantidad , DateTime fecha , Proveedor proveedor)
+        public Costeados(string nombre , int cod_art ,  double precio_unidad , int cantidad , DateTime fecha , Proveedor proveedor)
         {
             name = nombre;
             quantity = cantidad;
             price_un = precio_unidad;
             Fecha = fecha;
             proveed = proveedor;
+            codigo = cod_art;
         }
 
         public string Nombre
@@ -45,9 +48,13 @@ namespace ProyectoFinal
         {
             get { return proveed; }
         }
+        public int cod_articulo
+        {
+            get { return codigo; }
+        } 
         public override string ToString()
         {
-            return "     Nombre : " + Nombre + "    Cantidad :  " +  cantidad + "     Precio :  $" +  precio + "    Fecha :  " + date.ToShortDateString() ;
+            return "     Nombre : " + Nombre +"    Codigo: " + codigo + "    Cantidad :  " +  cantidad + "     Precio :  $" +  precio + "    Fecha :  " + date.ToShortDateString() ;
         }
 
     }

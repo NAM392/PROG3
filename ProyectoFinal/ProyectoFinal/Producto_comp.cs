@@ -44,7 +44,7 @@ namespace ProyectoFinal
             get { return quantity; }
         }
 
-        public double prec
+        public double precio
         {
             get { return price_un; }
         }
