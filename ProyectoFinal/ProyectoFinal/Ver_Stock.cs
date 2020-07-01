@@ -35,10 +35,11 @@ namespace ProyectoFinal
         }
 
         private void Ver_Stock_Load(object sender, EventArgs e)
-        {  //** BOTON VER STOCK **
-            
+        {  //** Inicio  **
+            txt_desde.MaxLength = 6;
+            txt_hasta.MaxLength = 6;
             //TRAIGO LA LISTA DE COSTEADOS
-             List<Costeados> depo = Program.getSistema().getCosteados();
+            List<Costeados> depo = Program.getSistema().getCosteados();
             //ORDENO LA LISTA DE COSTEADOS Y LA MUESTRO
             depo.Sort((x, y) => x.date.CompareTo(y.date));
             _Deposito.Items.AddRange(depo.ToArray());
@@ -108,6 +109,16 @@ namespace ProyectoFinal
             _Deposito.Items.Clear();
              depo.Sort((x, y) => x.date.CompareTo(y.date));
             _Deposito.Items.AddRange(depo.ToArray());
+        }
+
+        private void txt_desde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroDecimal(e);
+        }
+
+        private void txt_hasta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumeroDecimal(e);
         }
     }
 }

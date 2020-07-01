@@ -28,20 +28,36 @@ namespace ProyectoFinal
 
         private void NewProvider_Load(object sender, EventArgs e)
         {
-
+            //limito la cantidad de digitos al ingreso
+            txt_tel_prove.MaxLength = 13;
+            txt_dire_prov.MaxLength = 20;
+            txt_nom_prov.MaxLength = 15;
+            txt_tel_prove.Text = "0";
         }
 
 
         private void btn_ad_prov_Click_1(object sender, EventArgs e)
         {
-            /***ERRORES***/
-            if (txt_nom_prov.Text == null || txt_dire_prov.Text == null || txt_tel_prove.Text == null)
+            string nombre_prov = txt_nom_prov.Text;
+            string direccion_prov = txt_dire_prov.Text;
+            long telefono_prov = long.Parse(txt_tel_prove.Text);
+
+            if (nombre_prov == null || direccion_prov == null )
             {
                 MessageBox.Show("Complete los Campos");
                 return;
             }
+            if(telefono_prov <= 0 )
+            {
+                MessageBox.Show("Ingrese Numero Telefonico Valido ");
+                return;
+            }
+
+
+            /***ERRORES***/
+
             //SI NO HAY ERROR CREA UN NUEVO PROVEEDOR
-            Proveedor p = new Proveedor(txt_nom_prov.Text, txt_dire_prov.Text, int.Parse(txt_tel_prove.Text));
+            Proveedor p = new Proveedor(nombre_prov, direccion_prov, telefono_prov);
             //AGREGA EL NUEVO PROVEEDOR A LA LISTA PROVEEDOR QUE VIVE EN SISTEMA
             Program.getSistema().agregarProveedor(p);
             

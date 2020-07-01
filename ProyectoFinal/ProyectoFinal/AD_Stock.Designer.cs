@@ -106,11 +106,11 @@
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(105, 130);
+            this.lbl2.Location = new System.Drawing.Point(90, 133);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(93, 17);
+            this.lbl2.Size = new System.Drawing.Size(117, 17);
             this.lbl2.TabIndex = 8;
-            this.lbl2.Text = "Nuevo Precio";
+            this.lbl2.Text = "Nuevo Precio :  $";
             // 
             // txt_Precio
             // 

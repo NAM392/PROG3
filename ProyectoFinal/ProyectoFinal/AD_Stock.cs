@@ -23,6 +23,8 @@ namespace ProyectoFinal
         private void cmb_Depo_SelectedIndexChanged(object sender, EventArgs e)
         {
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
+            txt_Cant.MaxLength = 6;
+            txt_Precio.MaxLength = 6;
             txt_Cant.Text = "0";
             txt_Precio.Text = elegido.precio.ToString(); //muestra el precio del producto que ya tengo en deposito
 
@@ -40,6 +42,7 @@ namespace ProyectoFinal
         {
             //***BOTON ACEPTAR***
             Producto_comp elegido = (Producto_comp)cmb_Depo.SelectedItem;
+            int nuevaCantidad = Int32.Parse(txt_Cant.Text);
 
             /*ERRORES*/
 
@@ -52,7 +55,7 @@ namespace ProyectoFinal
             string name = elegido.Nombre;
             int article = elegido.cod_articulo;
             Proveedor provider = elegido.Proveedor;
-            int quant =  Int32.Parse(txt_Cant.Text)+ elegido.cantidad;
+            int quant = nuevaCantidad + elegido.cantidad;
             double cost = double.Parse(txt_Precio.Text);
             DateTime fecha = fecha_Compra.Value;
 
@@ -62,7 +65,7 @@ namespace ProyectoFinal
             //borra antiguo
             Program.getSistema().QuitarProducto(elegido);
             //carga nuevo
-            Program.getSistema().agregarProducto(prod , Int32.Parse(txt_Cant.Text));
+            Program.getSistema().agregarProducto(prod , nuevaCantidad);
 
             MessageBox.Show(" SE AGREGO STOCK CORRECTAMENTE " );
             frmSTC.Show();

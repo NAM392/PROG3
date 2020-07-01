@@ -55,7 +55,9 @@ namespace ProyectoFinal
             cmb_Todos.Items.Clear();
             cmb_Todos.Items.AddRange(Program.getSistema().getDeposito().ToArray());
             txtCant.Text = "0";
+            txtCant.MaxLength = 6;
             txt_Margen.Text = "0";
+            txt_Margen.MaxLength = 3;
             OP_FIFO.Checked = false;
             OP_LIFO.Checked = false;
             OP_PPP.Checked = false;
@@ -69,9 +71,11 @@ namespace ProyectoFinal
             double precio_final = 0;
             int cantidad = int.Parse(txtCant.Text);
             /******ERRORES AL INGRESO******/
-            
-            //no selecciono nada
+
+
+            //no selecciono producto
             if(elegido == null) { MessageBox.Show(" Seleccione Producto ");return; }
+
             //sin stock
             if (elegido.cantidad < int.Parse(txtCant.Text))
             {
@@ -96,7 +100,12 @@ namespace ProyectoFinal
                 MessageBox.Show(" Ingrese Margen de Utilidad ");
                 return;
             }
-
+            //no selecciono metodo
+            if (OP_FIFO.Checked == false && OP_LIFO.Checked == false && OP_PPP.Checked == false)
+            {
+                MessageBox.Show("Seleccione Metodo de Costeo");
+                return;
+            }
 
             //________________________________________________________________________________________
             //Funcion precio Final devuelve el precio final a vender (costo + margen de utilidad)

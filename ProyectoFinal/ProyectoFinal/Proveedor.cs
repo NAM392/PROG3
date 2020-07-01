@@ -13,9 +13,9 @@ namespace ProyectoFinal
 
         private string name;
         private string direction;
-        private int telephone;
+        private long telephone;
         
-        public Proveedor(string nombre, string direccion, int telefono)
+        public Proveedor(string nombre, string direccion, long telefono)
         {
             name = nombre;
             direction = direccion;
@@ -30,7 +30,7 @@ namespace ProyectoFinal
         {
             get { return direction; }
         }
-        public int tel
+        public long tel
         {
             get { return telephone; }
         }

@@ -55,7 +55,7 @@
             // lbl_pr
             // 
             this.lbl_pr.AutoSize = true;
-            this.lbl_pr.Location = new System.Drawing.Point(12, 19);
+            this.lbl_pr.Location = new System.Drawing.Point(9, 12);
             this.lbl_pr.Name = "lbl_pr";
             this.lbl_pr.Size = new System.Drawing.Size(137, 17);
             this.lbl_pr.TabIndex = 5;
@@ -64,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 57);
+            this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 6;
@@ -72,22 +72,24 @@
             // 
             // txt_desde
             // 
-            this.txt_desde.Location = new System.Drawing.Point(79, 57);
+            this.txt_desde.Location = new System.Drawing.Point(79, 43);
             this.txt_desde.Name = "txt_desde";
             this.txt_desde.Size = new System.Drawing.Size(54, 22);
             this.txt_desde.TabIndex = 7;
+            this.txt_desde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_desde_KeyPress);
             // 
             // txt_hasta
             // 
-            this.txt_hasta.Location = new System.Drawing.Point(79, 100);
+            this.txt_hasta.Location = new System.Drawing.Point(79, 83);
             this.txt_hasta.Name = "txt_hasta";
             this.txt_hasta.Size = new System.Drawing.Size(54, 22);
             this.txt_hasta.TabIndex = 9;
+            this.txt_hasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_hasta_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 100);
+            this.label2.Location = new System.Drawing.Point(12, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 8;
@@ -96,16 +98,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 125);
+            this.label3.Location = new System.Drawing.Point(12, 224);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 17);
+            this.label3.Size = new System.Drawing.Size(193, 17);
             this.label3.TabIndex = 10;
-            this.label3.Text = "__________________";
+            this.label3.Text = "-------------------------------------";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 153);
+            this.label4.Location = new System.Drawing.Point(12, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 11;
@@ -115,7 +117,7 @@
             // cmb_Proveedor
             // 
             this.cmb_Proveedor.FormattingEnabled = true;
-            this.cmb_Proveedor.Location = new System.Drawing.Point(15, 173);
+            this.cmb_Proveedor.Location = new System.Drawing.Point(12, 142);
             this.cmb_Proveedor.Name = "cmb_Proveedor";
             this.cmb_Proveedor.Size = new System.Drawing.Size(152, 24);
             this.cmb_Proveedor.TabIndex = 12;
@@ -132,7 +134,7 @@
             // 
             // btn_Select
             // 
-            this.btn_Select.Location = new System.Drawing.Point(12, 203);
+            this.btn_Select.Location = new System.Drawing.Point(12, 186);
             this.btn_Select.Name = "btn_Select";
             this.btn_Select.Size = new System.Drawing.Size(163, 35);
             this.btn_Select.TabIndex = 15;

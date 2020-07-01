@@ -151,16 +151,21 @@ namespace ProyectoFinal
             Proveedor pr = new Proveedor("GOMEZ srl ", "lala 12", 111);
             Proveedor pl = new Proveedor("KÖS sas ", "mstra mñz 13", 111);
             //fecha
+            DateTime dt3 = new DateTime( 2018 , 8 , 31) ;
             DateTime dt = new DateTime( 2019 , 4 , 20) ;
             DateTime dt2 = new DateTime( 2020 , 5 , 3) ;
-            DateTime dt3 = new DateTime( 2018 , 8 , 31) ;
+        
             //productos iniciales
             Producto_comp prod = new Producto_comp("Tornillos", 123, pr, 323, 1.4, dt);
             Producto_comp prod2 = new Producto_comp("Arandelas", 256, pl, 157, 2.3, dt2);
             Producto_comp prod3 = new Producto_comp("Media Omega", 620, pl, 111, 0.75, dt3);
+
+            //agrego productos
             s.agregarProducto(prod);
             s.agregarProducto(prod2);
             s.agregarProducto(prod3);
+
+            //agrego proveedor
             s.agregarProveedor(pl);
             s.agregarProveedor(pr);
             //usuario y contraseña

@@ -83,12 +83,15 @@ namespace ProyectoFinal
 
             if(nombre == null) { txtNom.Text = ""; }
             else { txtNom.Text = nombre; }
-                    
-           
+
+            txtNom.MaxLength = 10;
+            txt_CodProd.MaxLength = 6;
             cmb_Proveedor.Items.Clear();
             cmb_Proveedor.Items.AddRange(Program.getSistema().getProveedor().ToArray());
             txt_Cant.Text = "0";
+            txt_Cant.MaxLength = 6;
             txt_Precio.Text = "0";
+            txt_Precio.MaxLength = 6;
             txtNom.Focus();
                       
         }
